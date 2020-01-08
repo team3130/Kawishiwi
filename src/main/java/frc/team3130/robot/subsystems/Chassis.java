@@ -81,6 +81,13 @@ public class Chassis implements Subsystem {
 
     }
 
+    /**
+     * Drive the robot using tank mode
+     *
+     * @param moveL         Left input throttle
+     * @param moveR         Right input throttle
+     * @param squaredInputs Whether or not to use squared inputs
+     */
     public static void driveTank(double moveL, double moveR, boolean squaredInputs) {
         moveL = Util.limit(moveL, 1.0);
         moveL = Util.applyDeadband(moveL, RobotMap.kDriveDeadband);
@@ -330,8 +337,8 @@ public class Chassis implements Subsystem {
 
 
     public static void outputToSmartDashboard() {
-        SmartDashboard.putNumber("Chassis Right Velocity", m_rightMotorFront.getSelectedSensorVelocity(0));
-        SmartDashboard.putNumber("Chassis Left Velocity", m_leftMotorFront.getSelectedSensorVelocity(0));
+        SmartDashboard.putNumber("Chassis Right Velocity", getRawSpeedR());
+        SmartDashboard.putNumber("Chassis Left Velocity", getRawSpeedL());
 
         //SmartDashboard.putNumber("Chassis Right Vel Traj", m_rightMotorFront.getActiveTrajectoryVelocity(0));
         //SmartDashboard.putNumber("Chassis Left Vel Traj", m_leftMotorFront.getActiveTrajectoryVelocity(0));
@@ -342,8 +349,8 @@ public class Chassis implements Subsystem {
         SmartDashboard.putNumber("Chassis Distance R", getDistanceR());
         SmartDashboard.putNumber("Chassis Distance L", getDistanceL());
 
-        SmartDashboard.putNumber("Chassis Right Sensor Value", m_rightMotorFront.getSelectedSensorPosition());
-        SmartDashboard.putNumber("Chassis Left Sensor Value", m_leftMotorFront.getSelectedSensorPosition());
+        SmartDashboard.putNumber("Chassis Right Sensor Value", getRawR());
+        SmartDashboard.putNumber("Chassis Left Sensor Value", getRawL());
 
         SmartDashboard.putNumber("Chassis Right Output %", m_rightMotorFront.getMotorOutputPercent());
         SmartDashboard.putNumber("Chassis Left Output %", m_leftMotorFront.getMotorOutputPercent());
