@@ -6,7 +6,9 @@ import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.team3130.robot.RobotMap;
 import frc.team3130.robot.commands.DefaultDrive;
 import frc.team3130.robot.util.Util;
@@ -77,11 +79,6 @@ public class Chassis implements Subsystem {
         m_leftMotorFront.overrideLimitSwitchesEnable(false);
         m_rightMotorFront.overrideLimitSwitchesEnable(false);
 
-    }
-
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        setDefaultCommand(new DefaultDrive(this));
     }
 
     public static void driveTank(double moveL, double moveR, boolean squaredInputs) {
@@ -336,8 +333,8 @@ public class Chassis implements Subsystem {
         SmartDashboard.putNumber("Chassis Right Velocity", m_rightMotorFront.getSelectedSensorVelocity(0));
         SmartDashboard.putNumber("Chassis Left Velocity", m_leftMotorFront.getSelectedSensorVelocity(0));
 
-        SmartDashboard.putNumber("Chassis Right Vel Traj", m_rightMotorFront.getActiveTrajectoryVelocity(0));
-        SmartDashboard.putNumber("Chassis Left Vel Traj", m_leftMotorFront.getActiveTrajectoryVelocity(0));
+        //SmartDashboard.putNumber("Chassis Right Vel Traj", m_rightMotorFront.getActiveTrajectoryVelocity(0));
+        //SmartDashboard.putNumber("Chassis Left Vel Traj", m_leftMotorFront.getActiveTrajectoryVelocity(0));
 
         SmartDashboard.putNumber("Chassis Right Speed", getSpeedR());
         SmartDashboard.putNumber("Chassis Left Speed", getSpeedL());

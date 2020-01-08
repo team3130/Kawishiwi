@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.team3130.robot.commands.DefaultDrive;
 import frc.team3130.robot.subsystems.Chassis;
 
 /**
@@ -14,6 +15,7 @@ import frc.team3130.robot.subsystems.Chassis;
  * project.
  */
 public class Robot extends TimedRobot {
+    CommandScheduler scheduler = CommandScheduler.getInstance();
     CommandBase autonomousCommand = null;
     private SendableChooser<String> chooser = new SendableChooser<String>();
 
@@ -28,6 +30,8 @@ public class Robot extends TimedRobot {
 
         //Instantiate subsystems
         Chassis.GetInstance();
+
+        scheduler.setDefaultCommand(Chassis.GetInstance(), new DefaultDrive(Chassis.GetInstance()));
 
         //Smartdash output thread
         Thread t = new Thread(() -> {
@@ -85,7 +89,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
-        CommandScheduler.getInstance().run();
+        scheduler.run();
     }
 
     /**
@@ -93,7 +97,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        CommandScheduler.getInstance().run();
+        scheduler.run();
     }
 
     /**
