@@ -13,13 +13,13 @@ public class OI {
         private int axis;
         private double threshold;
 
-        private JoystickTrigger(Joystick stick, int axis){
+        private JoystickTrigger(Joystick stick, int axis) {
             this.stick = stick;
             this.axis = axis;
             threshold = 0.1;
         }
 
-        private JoystickTrigger(Joystick stick, int axis, double threshold){
+        private JoystickTrigger(Joystick stick, int axis, double threshold) {
             this.stick = stick;
             this.axis = axis;
             this.threshold = threshold;
@@ -32,7 +32,7 @@ public class OI {
 
     }
 
-    private class POVTrigger extends Trigger{
+    private class POVTrigger extends Trigger {
 
         private Joystick stick;
         private int POV;
@@ -44,16 +44,16 @@ public class OI {
 
         @Override
         public boolean get() {
-            return stick.getPOV(0)==POV;
+            return stick.getPOV(0) == POV;
         }
 
     }
 
     //Instance Handling
     private static OI m_pInstance;
-    public static OI GetInstance()
-    {
-        if(m_pInstance == null) m_pInstance = new OI();
+
+    public static OI GetInstance() {
+        if (m_pInstance == null) m_pInstance = new OI();
         return m_pInstance;
     }
 
@@ -64,50 +64,17 @@ public class OI {
     public static Joystick driverGamepad;
     public static Joystick weaponsGamepad;
 
-    public static JoystickButton shift;
-    public static JoystickButton startAiming;
-
-    public static POVTrigger zeroWrist;
-
-    public static JoystickButton testArm;
-    public static JoystickButton testButton;
-
-    public static JoystickButton toggleTongue;
-
-    public static POVTrigger elevGround;
-
-
-    public static JoystickButton intakeStowed;
-    public static JoystickButton intakePickup;
-
-    public static JoystickButton lowBall;
-    public static JoystickButton middleBall;
-    public static JoystickButton highBall;
-    public static JoystickButton toCargoship;
-
-    public static POVTrigger highTongue;
-    public static POVTrigger middleTongue;
-    public static POVTrigger lowTongue;
-    public static POVTrigger toStation;
-
-
-
-
-
-    private static JoystickButton armDeploy;
-    private static JoystickTrigger legDown;
-    private static JoystickTrigger legDrive;
-    private static JoystickButton legUp;
-
 
     public void checkTriggers() {
         //Driver
         if (Math.abs(OI.driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER)) >= RobotMap.kIntakeTriggerDeadband) {
-        }else{
+
+        } else {
+
         }
         if (Math.abs(OI.driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER)) >= RobotMap.kIntakeTriggerDeadband) {
 
-        }else{
+        } else {
 
         }
     }
