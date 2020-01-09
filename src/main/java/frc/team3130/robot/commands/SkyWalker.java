@@ -17,7 +17,6 @@ public class SkyWalker extends CommandBase {
 
     public SkyWalker(){addRequirements(Climber.GetInstance());}
     private double percent;
-    private BasicTalonSRX motor;
 
     /**
      * Spins a motor
@@ -28,17 +27,6 @@ public class SkyWalker extends CommandBase {
      * @param percentage the percentage of the voltage supplied to the talon to pass onto the motor
      */
 
-    public SkyWalker(BasicTalonSRX motor, double percentage) {
-        addRequirements(motor);
-        percent = percentage;
-        this.motor=motor;
-    }
-
-    public void ChangePercent(double percentage)
-    {
-        percent = percentage;
-    }
-
     // Called just before this Command runs the first time
     public void initialize(){
     }
@@ -46,19 +34,17 @@ public class SkyWalker extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     public void execute() {
-        Climber.motorSpin(OI.driverGamepad.getRawAxis(RobotMap.LST_BTN_X));
+        Climber.motorSpin(OI.getSkywalker());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     public boolean isFinished() {
-        if(!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_X) == true)
-        {return true;}
-        return !OI.driverGamepad.getRawButton(RobotMap.LST_BTN_X);
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Climber.motorStopSpin(OI.driverGamepad.getRawAxis(RobotMap.LST_BTN_X));
+        Climber.motorSpin(0);
     }
 
     // Called when another command which requires one or more of the same

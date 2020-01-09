@@ -5,7 +5,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team3130.robot.commands.DefaultDrive;
+import frc.team3130.robot.commands.SkyWalker;
 import frc.team3130.robot.subsystems.Chassis;
+import frc.team3130.robot.subsystems.Climber;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,10 +30,9 @@ public class Robot extends TimedRobot {
         //Instantiate operator interface
         OI.GetInstance();
 
-        //Instantiate subsystems
-        Chassis.GetInstance();
 
         scheduler.setDefaultCommand(Chassis.GetInstance(), new DefaultDrive(Chassis.GetInstance()));
+        scheduler.setDefaultCommand(Climber.GetInstance(), new SkyWalker());
 
         //Smartdash output thread
         Thread t = new Thread(() -> {

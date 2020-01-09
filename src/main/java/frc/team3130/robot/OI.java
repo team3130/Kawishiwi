@@ -56,7 +56,15 @@ public class OI {
         if (m_pInstance == null) m_pInstance = new OI();
         return m_pInstance;
     }
+    private static Joystick SkyWalkerR;
+    private static Joystick SkyWalkerL;
 
+    public static double getSkywalker(){
+      double spin = 0;
+      spin += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
+      spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
+      return spin;
+    }
     /**
      * Definitions for joystick buttons start
      */
@@ -85,3 +93,4 @@ public class OI {
         weaponsGamepad = new Joystick(1);
     }
 }
+

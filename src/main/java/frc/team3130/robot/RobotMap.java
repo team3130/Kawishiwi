@@ -64,6 +64,7 @@ public class RobotMap {
     public static final int CAN_LEFTMOTORFRONT = 4;
     public static final int CAN_LEFTMOTORREAR = 5;
 
+    public static final int CAN_SKYWALKER = 8;
 
     /**
      * Pneumatics ports
