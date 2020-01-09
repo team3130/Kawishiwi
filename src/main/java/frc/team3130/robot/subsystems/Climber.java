@@ -10,12 +10,21 @@ import frc.team3130.robot.RobotMap;
 public class Climber implements Subsystem {
 
 
-    private static Climber m_pInstance;
+    /**
+     * The Singleton instance of this Climber. External classes should
+     * use the {@link #getInstance()} method to get the instance.
+     */
+    private final static Climber INSTANCE = new Climber();
 
-    public static Climber GetInstance() {
-        if (m_pInstance == null) m_pInstance = new Climber();
-        return m_pInstance;
+    /**
+     * Returns the Singleton instance of this Climber. This static method
+     * should be used -- {@code Climber.getInstance();} -- by external
+     * classes, rather than the constructor to get the instance of this class.
+     */
+    public static Climber getInstance() {
+        return INSTANCE;
     }
+
 
     private static WPI_TalonSRX m_skyWalker;
 

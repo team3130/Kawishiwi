@@ -16,12 +16,19 @@ import frc.team3130.robot.util.Util;
 
 public class Chassis implements Subsystem {
 
-    //Instance Handling
-    private static Chassis m_pInstance;
+    /**
+     * The Singleton instance of this Chassis. External classes should
+     * use the {@link #getInstance()} method to get the instance.
+     */
+    private final static Chassis INSTANCE = new Chassis();
 
-    public static Chassis GetInstance() {
-        if (m_pInstance == null) m_pInstance = new Chassis();
-        return m_pInstance;
+    /**
+     * Returns the Singleton instance of this Chassis. This static method
+     * should be used -- {@code Chassis.getInstance();} -- by external
+     * classes, rather than the constructor to get the instance of this class.
+     */
+    public static Chassis getInstance() {
+        return INSTANCE;
     }
 
     //Create necessary objects
