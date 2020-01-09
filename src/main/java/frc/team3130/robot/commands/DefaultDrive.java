@@ -6,11 +6,9 @@ import frc.team3130.robot.subsystems.Chassis;
 
 
 public class DefaultDrive extends CommandBase {
-    private final Chassis chassis;
 
-    public DefaultDrive(Chassis chassis) {
-        this.chassis = chassis;
-        addRequirements(chassis);
+    public DefaultDrive() {
+        addRequirements(Chassis.GetInstance());
     }
 
     /**
