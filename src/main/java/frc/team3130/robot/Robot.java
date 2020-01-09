@@ -30,8 +30,8 @@ public class Robot extends TimedRobot {
         //Instantiate operator interface
         OI.GetInstance();
 
-
-        scheduler.setDefaultCommand(Chassis.GetInstance(), new DefaultDrive(Chassis.GetInstance()));
+        //Register and instantiate subsystems (optionally with default commands)
+        scheduler.setDefaultCommand(Chassis.GetInstance(), new DefaultDrive());
         scheduler.setDefaultCommand(Climber.GetInstance(), new SkyWalker());
 
         //Smartdash output thread
