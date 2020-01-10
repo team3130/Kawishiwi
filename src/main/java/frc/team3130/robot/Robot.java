@@ -6,9 +6,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team3130.robot.commands.DefaultDrive;
 import frc.team3130.robot.commands.SkyWalker;
-import frc.team3130.robot.subsystems.Chassis;
-import frc.team3130.robot.subsystems.Climber;
-import frc.team3130.robot.subsystems.WheelOfFortune;
+import frc.team3130.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +32,10 @@ public class Robot extends TimedRobot {
         //Register and instantiate subsystems (optionally with default commands)
         scheduler.setDefaultCommand(Chassis.getInstance(), new DefaultDrive());
         scheduler.setDefaultCommand(Climber.getInstance(), new SkyWalker());
+        scheduler.registerSubsystem(Intake.getInstance());
+        scheduler.registerSubsystem(Shooter.getInstance());
+        scheduler.registerSubsystem(WheelOfFortune.getInstance());
+
 
         //Smartdash output thread
         Thread t = new Thread(() -> {
