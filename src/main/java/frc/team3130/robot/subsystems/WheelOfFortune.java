@@ -1,5 +1,6 @@
 package frc.team3130.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
@@ -7,6 +8,8 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj.util.Color;
+import frc.team3130.robot.RobotMap;
+import frc.team3130.robot.commands.SpinWheel;
 
 public class WheelOfFortune implements Subsystem {
 
@@ -83,6 +86,10 @@ public class WheelOfFortune implements Subsystem {
 
         return colorString;
     }
+
+    private static WPI_TalonSRX m_spinWheel;
+
+    
 
     public static void motorSpin(double spin) {
 

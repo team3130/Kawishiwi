@@ -70,6 +70,8 @@ public class RobotMap {
 
     public static final int CAN_SKYWALKER = 8;
 
+    public static final int CAN_WHEELOFFORTUNE = 10;
+
     /**
      * Pneumatics ports
      */
