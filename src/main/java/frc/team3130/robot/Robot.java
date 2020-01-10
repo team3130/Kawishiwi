@@ -8,6 +8,7 @@ import frc.team3130.robot.commands.DefaultDrive;
 import frc.team3130.robot.commands.SkyWalker;
 import frc.team3130.robot.subsystems.Chassis;
 import frc.team3130.robot.subsystems.Climber;
+import frc.team3130.robot.subsystems.WheelOfFortune;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -110,6 +111,7 @@ public class Robot extends TimedRobot {
     }
 
     public void outputToSmartDashboard() {
+        WheelOfFortune.detectColor();
         Chassis.outputToSmartDashboard();
     }
 
