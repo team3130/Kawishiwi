@@ -6,15 +6,24 @@ import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.team3130.robot.RobotMap;
-import frc.team3130.robot.commands.DefaultDrive;
 import frc.team3130.robot.util.Util;
 
 
 public class Chassis implements Subsystem {
+
+    //Create necessary objects
+    private static WPI_TalonSRX m_leftMotorFront;
+    private static WPI_TalonSRX m_leftMotorRear;
+    private static WPI_TalonSRX m_rightMotorFront;
+    private static WPI_TalonSRX m_rightMotorRear;
+
+    private static Solenoid m_shifter;
+
+    private static ChassisControlState mChassisState = ChassisControlState.PERCENT_OUTPUT;
+
+    //Create and define all standard data types needed
 
     /**
      * The Singleton instance of this Chassis. External classes should
@@ -30,19 +39,6 @@ public class Chassis implements Subsystem {
     public static Chassis getInstance() {
         return INSTANCE;
     }
-
-    //Create necessary objects
-    private static WPI_TalonSRX m_leftMotorFront;
-    private static WPI_TalonSRX m_leftMotorRear;
-    private static WPI_TalonSRX m_rightMotorFront;
-    private static WPI_TalonSRX m_rightMotorRear;
-
-    private static Solenoid m_shifter;
-
-    private static ChassisControlState mChassisState = ChassisControlState.PERCENT_OUTPUT;
-
-    //Create and define all standard data types needed
-
 
     private Chassis() {
 

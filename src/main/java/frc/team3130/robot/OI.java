@@ -1,9 +1,7 @@
 package frc.team3130.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.team3130.robot.subsystems.Chassis;
 
 
 public class OI {
@@ -57,12 +55,13 @@ public class OI {
         return m_pInstance;
     }
 
-    public static double getSkywalker(){
-      double spin = 0;
-      spin += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
-      spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
-      return spin;
+    public static double getSkywalker() {
+        double spin = 0;
+        spin += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
+        spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
+        return spin;
     }
+
     /**
      * Definitions for joystick buttons start
      */

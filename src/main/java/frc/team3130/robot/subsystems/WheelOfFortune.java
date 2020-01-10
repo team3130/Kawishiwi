@@ -1,12 +1,9 @@
 package frc.team3130.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.team3130.robot.RobotMap;
 
 
 public class WheelOfFortune implements Subsystem {
-
 
 
     /**
@@ -25,12 +22,11 @@ public class WheelOfFortune implements Subsystem {
     }
 
 
-
     private WheelOfFortune() {
 
     }
 
-    public static void motorSpin (double spin){
+    public static void motorSpin(double spin) {
 
     }
 }
