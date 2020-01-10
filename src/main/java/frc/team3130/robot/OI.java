@@ -61,10 +61,11 @@ public class OI {
         spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
         return spin;
     }
+    //This is the Wheel Spinning Button
     public static double getSpinWheel() {
         double spin = 0;
-        spin += driverGamepad.getRawAxis(RobotMap.LST_BTN_A);
-        //spin -= driverGamepad.getRawAxis(RobotMap.);
+        spin += driverGamepad.getRawAxis(RobotMap.LST_BTN_RBUMPER);
+        spin -= driverGamepad.getRawAxis(RobotMap.LST_BTN_LBUMPER);
         return spin;
     }
 
