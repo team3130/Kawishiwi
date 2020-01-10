@@ -8,12 +8,19 @@ import frc.team3130.robot.RobotMap;
 
 
 public class Shooter implements Subsystem {
-    //Instance Handling
-    private static Shooter m_pInstance;
+    /**
+     * The Singleton instance of this Shooter. External classes should
+     * use the {@link #getInstance()} method to get the instance.
+     */
+    private final static Shooter INSTANCE = new Shooter();
 
-    public static Shooter GetInstance() {
-        if (m_pInstance == null) m_pInstance = new Shooter();
-        return m_pInstance;
+    /**
+     * Returns the Singleton instance of this Shooter. This static method
+     * should be used -- {@code Shooter.getInstance();} -- by external
+     * classes, rather than the constructor to get the instance of this class.
+     */
+    public static Shooter getInstance() {
+        return INSTANCE;
     }
 
     //Create necessary objects
