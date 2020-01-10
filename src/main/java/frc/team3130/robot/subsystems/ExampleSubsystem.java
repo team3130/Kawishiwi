@@ -1,12 +1,15 @@
 package frc.team3130.robot.subsystems;
 
-
 import edu.wpi.first.wpilibj2.command.Subsystem;
 
 public class ExampleSubsystem implements Subsystem {
 
 // Any variables/fields used in the constructor must appear before the "INSTANCE" variable
 // so that they are initialized before the constructor is called.
+
+    //Create necessary objects
+
+    //Create and define all standard data types needed
 
     /**
      * The Singleton instance of this ExampleSubsystem. External classes should

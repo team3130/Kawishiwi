@@ -4,11 +4,12 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.RobotMap;
 
-
 public class Climber implements Subsystem {
 
-
+    //Create necessary objects
     private static WPI_TalonSRX m_skyWalker;
+
+    //Create and define all standard data types needed
 
     /**
      * The Singleton instance of this Climber. External classes should

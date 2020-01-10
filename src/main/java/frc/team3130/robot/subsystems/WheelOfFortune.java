@@ -2,9 +2,11 @@ package frc.team3130.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
 
-
 public class WheelOfFortune implements Subsystem {
 
+    //Create necessary objects
+
+    //Create and define all standard data types needed
 
     /**
      * The Singleton instance of this WheelOfFortune. External classes should
@@ -20,7 +22,6 @@ public class WheelOfFortune implements Subsystem {
     public static WheelOfFortune getInstance() {
         return INSTANCE;
     }
-
 
     private WheelOfFortune() {
 
