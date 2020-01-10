@@ -61,6 +61,12 @@ public class OI {
         spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
         return spin;
     }
+    public static double getSpinWheel() {
+        double spin = 0;
+        spin += driverGamepad.getRawAxis(RobotMap.LST_BTN_A);
+        //spin -= driverGamepad.getRawAxis(RobotMap.);
+        return spin;
+    }
 
     /**
      * Definitions for joystick buttons start
