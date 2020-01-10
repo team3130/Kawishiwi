@@ -16,6 +16,7 @@ public class WheelOfFortune implements Subsystem {
     //Create necessary objects
     private static ColorSensorV3 m_colorSensor;
     private static ColorMatch m_colorMatcher;
+    private static WPI_TalonSRX m_spinWheel;
 
     //Create and define all standard data types needed
     private final I2C.Port i2cPort = I2C.Port.kOnboard;
@@ -47,6 +48,9 @@ public class WheelOfFortune implements Subsystem {
         m_colorMatcher.addColorMatch(kGreenTarget);
         m_colorMatcher.addColorMatch(kRedTarget);
         m_colorMatcher.addColorMatch(kYellowTarget);
+
+        m_spinWheel = new WPI_TalonSRX(RobotMap.CAN_SKYWALKER);
+        m_spinWheel.configFactoryDefault();
     }
 
     public static int proximityCheck() {
@@ -87,12 +91,10 @@ public class WheelOfFortune implements Subsystem {
         return colorString;
     }
 
-    private static WPI_TalonSRX m_spinWheel;
 
-    
 
     public static void motorSpin(double spin) {
-
+        m_spinWheel.set(spin);
     }
 
     public static void outputToSmartDashboard() {
