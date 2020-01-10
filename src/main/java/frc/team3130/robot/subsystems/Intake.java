@@ -8,7 +8,7 @@ public class Intake implements Subsystem {
 // so that they are initialized before the constructor is called.
 
     //Create necessary objects
-
+    
     //Create and define all standard data types needed
 
     /**
