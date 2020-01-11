@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.team3130.robot.commands.SpinShooter;
 import frc.team3130.robot.commands.SpinWheel;
+import frc.team3130.robot.commands.TripleSpinFinish;
 
 
 public class OI {
@@ -76,6 +77,8 @@ public class OI {
     private static JoystickButton spinWheel;
     private static JoystickButton spinShooter;
 
+    private static JoystickButton testTripleSpinFinish;
+
 
     public void checkTriggers() {
         //Driver
@@ -100,9 +103,13 @@ public class OI {
 
         spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_X);
 
+        testTripleSpinFinish = new JoystickButton(driverGamepad, RobotMap.LST_BTN_B);
+
         spinWheel.whileHeld(new SpinWheel());
 
         spinWheel.whileHeld(new SpinShooter());
+
+        testTripleSpinFinish.whenPressed(new TripleSpinFinish());
 
 
 
