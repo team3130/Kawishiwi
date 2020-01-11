@@ -3,6 +3,7 @@ package frc.team3130.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.team3130.robot.commands.SpinShooter;
 import frc.team3130.robot.commands.SpinWheel;
 
 
@@ -73,6 +74,7 @@ public class OI {
     public static Joystick weaponsGamepad;
 
     private static JoystickButton spinWheel;
+    private static JoystickButton spinShooter;
 
 
     public void checkTriggers() {
@@ -96,7 +98,14 @@ public class OI {
 
         spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
 
+        spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_X);
+
         spinWheel.whileHeld(new SpinWheel());
+
+        spinWheel.whileHeld(new SpinShooter());
+
+
+
     }
 }
 
