@@ -60,7 +60,6 @@ public class RobotMap {
 
     public static final int CAN_RIGHTMOTORFRONT = 2;
     public static final int CAN_RIGHTMOTORREAR = 3;
-
     public static final int CAN_LEFTMOTORFRONT = 4;
     public static final int CAN_LEFTMOTORREAR = 5;
 
@@ -71,6 +70,9 @@ public class RobotMap {
     public static final int CAN_SKYWALKER = 8;
 
     public static final int CAN_WHEELOFFORTUNE = 7;
+
+    public static final int CAN_INTAKE1 = 100; //TODO: map this
+    public static final int CAN_INTAKE2 = 101; //TODO: map this
 
     /**
      * Pneumatics ports
