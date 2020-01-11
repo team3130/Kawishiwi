@@ -3,9 +3,7 @@ package frc.team3130.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.team3130.robot.commands.SpinShooter;
-import frc.team3130.robot.commands.SpinWheel;
-import frc.team3130.robot.commands.TripleSpinFinish;
+import frc.team3130.robot.commands.*;
 
 
 public class OI {
@@ -66,19 +64,20 @@ public class OI {
         return spin;
     }
 
+    //Joysticks
+    public static Joystick driverGamepad;
+    public static Joystick weaponsGamepad;
 
     /**
      * Definitions for joystick buttons start
      */
-    //Joystick
-    public static Joystick driverGamepad;
-    public static Joystick weaponsGamepad;
-
     private static JoystickButton spinWheel;
     private static JoystickButton spinShooter;
 
     private static JoystickButton testTripleSpinFinish;
 
+    private static JoystickButton intakeIn;
+    private static JoystickButton intakeOut;
 
     public void checkTriggers() {
         //Driver
@@ -99,11 +98,17 @@ public class OI {
         driverGamepad = new Joystick(0);
         weaponsGamepad = new Joystick(1);
 
-        spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
+        spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
 
         spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_X);
 
         testTripleSpinFinish = new JoystickButton(driverGamepad, RobotMap.LST_BTN_B);
+
+        intakeIn = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
+        intakeOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_LBUMPER);
+
+        intakeIn.whileHeld(new IntakeIn());
+        intakeOut.whileHeld(new IntakeOut());
 
         spinWheel.whileHeld(new SpinWheel());
 
