@@ -49,7 +49,7 @@ public class WheelOfFortune implements Subsystem {
         m_colorMatcher.addColorMatch(kRedTarget);
         m_colorMatcher.addColorMatch(kYellowTarget);
 
-        m_spinWheel = new WPI_TalonSRX(RobotMap.CAN_SKYWALKER);
+        m_spinWheel = new WPI_TalonSRX(RobotMap.CAN_WHEELOFFORTUNE);
         m_spinWheel.configFactoryDefault();
     }
 

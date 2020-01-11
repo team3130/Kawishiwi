@@ -3,6 +3,7 @@ package frc.team3130.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.OI;
+import frc.team3130.robot.RobotMap;
 import frc.team3130.robot.subsystems.Climber;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
 import frc.team3130.robot.subsystems.WheelOfFortune;
@@ -30,7 +31,8 @@ public class SpinWheel implements Command {
      */
     @Override
     public void execute() {
-        WheelOfFortune.motorSpin(OI.getSpinWheel());
+        WheelOfFortune.motorSpin(.5);
+        WheelOfFortune.motorSpin(OI.driverGamepad.getRawAxis(RobotMap.LST_BTN_RBUMPER));
     }
 
     /**
@@ -49,8 +51,9 @@ public class SpinWheel implements Command {
      */
     @Override
     public boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
-        return false;
+        if(!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER) == true)
+        {return true;}
+        return !OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER);
     }
 
     /**
@@ -62,7 +65,8 @@ public class SpinWheel implements Command {
      * @param interrupted whether the command was interrupted/canceled
      */
     @Override
-    public void end(boolean interrupted) {WheelOfFortune.motorSpin(0);
+    public void end(boolean interrupted) {
+        WheelOfFortune.motorSpin(0);
     }
 
 

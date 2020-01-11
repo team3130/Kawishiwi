@@ -1,7 +1,9 @@
 package frc.team3130.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.team3130.robot.commands.SpinWheel;
 
 
 public class OI {
@@ -61,13 +63,7 @@ public class OI {
         spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
         return spin;
     }
-    //This is the Wheel Spinning Button
-    public static double getSpinWheel() {
-        double spin = 0;
-        spin += driverGamepad.getRawAxis(RobotMap.LST_BTN_RBUMPER);
-        spin -= driverGamepad.getRawAxis(RobotMap.LST_BTN_LBUMPER);
-        return spin;
-    }
+
 
     /**
      * Definitions for joystick buttons start
@@ -75,6 +71,8 @@ public class OI {
     //Joystick
     public static Joystick driverGamepad;
     public static Joystick weaponsGamepad;
+
+    private static JoystickButton spinWheel;
 
 
     public void checkTriggers() {
@@ -95,6 +93,10 @@ public class OI {
     private OI() {
         driverGamepad = new Joystick(0);
         weaponsGamepad = new Joystick(1);
+
+        spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
+
+        spinWheel.whileHeld(new SpinWheel());
     }
 }
 
