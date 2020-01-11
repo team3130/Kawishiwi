@@ -63,13 +63,14 @@ public class RobotMap {
     public static final int CAN_LEFTMOTORFRONT = 4;
     public static final int CAN_LEFTMOTORREAR = 5;
 
-    public static final int CAN_SHOOTERLEFT = 11;
-    public static final int CAN_SHOOTERRIGHT = 10;
-    public static final int CAN_SHOOTERTOP = 9;
-
+    public static final int CAN_WHEELOFFORTUNE = 7;
     public static final int CAN_SKYWALKER = 8;
 
-    public static final int CAN_WHEELOFFORTUNE = 7;
+    public static final int CAN_SHOOTERTOP = 9;
+    public static final int CAN_SHOOTERRIGHT = 10;
+    public static final int CAN_SHOOTERLEFT = 11;
+
+
 
     public static final int CAN_INTAKE1 = 100; //TODO: map this
     public static final int CAN_INTAKE2 = 101; //TODO: map this

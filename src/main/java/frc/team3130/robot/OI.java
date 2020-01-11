@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.team3130.robot.commands.SpinShooter;
 import frc.team3130.robot.commands.IntakeIn;
 import frc.team3130.robot.commands.IntakeOut;
 import frc.team3130.robot.commands.SpinWheel;
@@ -75,6 +76,7 @@ public class OI {
      * Definitions for joystick buttons start
      */
     private static JoystickButton spinWheel;
+    private static JoystickButton spinShooter;
 
     private static JoystickButton intakeIn;
     private static JoystickButton intakeOut;
@@ -100,6 +102,8 @@ public class OI {
 
         spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
 
+        spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_X);
+
         intakeIn = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
         intakeOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_LBUMPER);
 
@@ -107,6 +111,11 @@ public class OI {
         intakeOut.whileHeld(new IntakeOut());
 
         spinWheel.whileHeld(new SpinWheel());
+
+        spinWheel.whileHeld(new SpinShooter());
+
+
+
     }
 }
 

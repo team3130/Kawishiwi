@@ -4,17 +4,16 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.OI;
 import frc.team3130.robot.RobotMap;
-import frc.team3130.robot.subsystems.Climber;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
-import frc.team3130.robot.subsystems.WheelOfFortune;
+import frc.team3130.robot.subsystems.Shooter;
 
 import java.util.Set;
 
-public class SpinWheel implements Command {
+public class SpinShooter implements Command {
     private final Set<Subsystem> subsystems;
 
-    public SpinWheel() {
-        this.subsystems = Set.of(WheelOfFortune.getInstance());
+    public SpinShooter() {
+        this.subsystems = Set.of(ExampleSubsystem.getInstance());
     }
 
     /**
@@ -31,7 +30,8 @@ public class SpinWheel implements Command {
      */
     @Override
     public void execute() {
-        WheelOfFortune.motorSpin(.3);
+        Shooter.shooterSpin(.7);
+        Shooter.shooterTopSpin(.5);
     }
 
     /**
@@ -50,6 +50,7 @@ public class SpinWheel implements Command {
      */
     @Override
     public boolean isFinished() {
+        // TODO: Make this return true when this Command no longer needs to run execute()
         if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER))
             return true;
         return false;
@@ -65,9 +66,9 @@ public class SpinWheel implements Command {
      */
     @Override
     public void end(boolean interrupted) {
-        WheelOfFortune.motorSpin(0);
+        Shooter.shooterSpin(0);
+        Shooter.shooterTopSpin(0);
     }
-
 
     /**
      * <p>
