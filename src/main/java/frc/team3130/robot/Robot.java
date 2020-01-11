@@ -35,8 +35,11 @@ public class Robot extends TimedRobot {
         scheduler.setDefaultCommand(Shooter.getInstance(), new SpinShooter());
         scheduler.setDefaultCommand(WheelOfFortune.getInstance(), new TripleSpinFinish());
         scheduler.setDefaultCommand(Intake.getInstance(), new IntakeOut());
+        scheduler.registerSubsystem(Intake.getInstance());
         scheduler.registerSubsystem(Shooter.getInstance());
+        scheduler.registerSubsystem(Climber.getInstance());
         scheduler.registerSubsystem(WheelOfFortune.getInstance());
+        scheduler.registerSubsystem(Chassis.getInstance());
 
 
 
