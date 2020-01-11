@@ -14,7 +14,7 @@ public class SpinWheel implements Command {
     private final Set<Subsystem> subsystems;
 
     public SpinWheel() {
-        this.subsystems = Set.of(ExampleSubsystem.getInstance());
+        this.subsystems = Set.of(WheelOfFortune.getInstance());
     }
 
     /**
@@ -31,8 +31,7 @@ public class SpinWheel implements Command {
      */
     @Override
     public void execute() {
-        WheelOfFortune.motorSpin(.5);
-        WheelOfFortune.motorSpin(OI.driverGamepad.getRawAxis(RobotMap.LST_BTN_RBUMPER));
+        WheelOfFortune.motorSpin(.3);
     }
 
     /**
@@ -51,9 +50,9 @@ public class SpinWheel implements Command {
      */
     @Override
     public boolean isFinished() {
-        if(!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER) == true)
-        {return true;}
-        return !OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER);
+        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER))
+            return true;
+        return false;
     }
 
     /**
@@ -68,7 +67,6 @@ public class SpinWheel implements Command {
     public void end(boolean interrupted) {
         WheelOfFortune.motorSpin(0);
     }
-
 
 
     /**
