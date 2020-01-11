@@ -5,7 +5,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team3130.robot.commands.DefaultDrive;
+import frc.team3130.robot.commands.IntakeIn;
 import frc.team3130.robot.commands.SkyWalker;
+import frc.team3130.robot.commands.SpinShooter;
 import frc.team3130.robot.subsystems.*;
 
 /**
@@ -32,9 +34,12 @@ public class Robot extends TimedRobot {
         //Register and instantiate subsystems (optionally with default commands)
         scheduler.setDefaultCommand(Chassis.getInstance(), new DefaultDrive());
         scheduler.setDefaultCommand(Climber.getInstance(), new SkyWalker());
+        scheduler.setDefaultCommand(Intake.getInstance(), new IntakeIn());
+        scheduler.setDefaultCommand(Shooter.getInstance(), new SpinShooter());
         scheduler.registerSubsystem(Intake.getInstance());
         scheduler.registerSubsystem(Shooter.getInstance());
         scheduler.registerSubsystem(WheelOfFortune.getInstance());
+
 
 
         //Smartdash output thread
