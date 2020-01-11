@@ -30,13 +30,8 @@ public class Robot extends TimedRobot {
 
         //Register and instantiate subsystems (optionally with default commands)
         scheduler.setDefaultCommand(Chassis.getInstance(), new DefaultDrive());
-        scheduler.setDefaultCommand(Climber.getInstance(), new SkyWalker());
-        scheduler.setDefaultCommand(Intake.getInstance(), new IntakeIn());
         scheduler.setDefaultCommand(Shooter.getInstance(), new SpinShooter());
-        scheduler.setDefaultCommand(WheelOfFortune.getInstance(), new TripleSpinFinish());
-        scheduler.setDefaultCommand(Intake.getInstance(), new IntakeOut());
         scheduler.registerSubsystem(Shooter.getInstance());
-        scheduler.registerSubsystem(WheelOfFortune.getInstance());
 
 
 
@@ -116,7 +111,6 @@ public class Robot extends TimedRobot {
     }
 
     public void outputToSmartDashboard() {
-        WheelOfFortune.detectColor();
         Chassis.outputToSmartDashboard();
     }
 

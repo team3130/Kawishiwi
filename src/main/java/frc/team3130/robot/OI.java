@@ -106,15 +106,10 @@ public class OI {
 
         intakeIn = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
         intakeOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_LBUMPER);
-
-        intakeIn.whileHeld(new IntakeIn());
-        intakeOut.whileHeld(new IntakeOut());
-
-        spinWheel.whileHeld(new SpinWheel());
+        
 
         spinWheel.whileHeld(new SpinShooter());
 
-        testTripleSpinFinish.whenPressed(new TripleSpinFinish());
 
 
 
