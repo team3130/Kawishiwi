@@ -31,7 +31,7 @@ public class SpinShooter implements Command {
     @Override
     public void execute() {
         Shooter.shooterSpin(.7);
-        Shooter.shooterTopSpin(.5);
+
     }
 
     /**
@@ -51,7 +51,7 @@ public class SpinShooter implements Command {
     @Override
     public boolean isFinished() {
         // TODO: Make this return true when this Command no longer needs to run execute()
-        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER))
+        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_X))
             return true;
         return false;
     }
@@ -67,7 +67,7 @@ public class SpinShooter implements Command {
     @Override
     public void end(boolean interrupted) {
         Shooter.shooterSpin(0);
-        Shooter.shooterTopSpin(0);
+
     }
 
     /**
