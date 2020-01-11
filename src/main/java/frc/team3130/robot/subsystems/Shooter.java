@@ -9,7 +9,7 @@ public class Shooter implements Subsystem {
     //Create necessary objects
     private static WPI_TalonSRX m_shooterLeft;
     private static WPI_TalonSRX m_shooterRight;
-    private static WPI_TalonSRX m_shooterTop;
+
 
 
     //Create and define all standard data types needed
@@ -32,11 +32,11 @@ public class Shooter implements Subsystem {
     private Shooter() {
         m_shooterLeft = new WPI_TalonSRX(RobotMap.CAN_SHOOTERLEFT);
         m_shooterRight = new WPI_TalonSRX(RobotMap.CAN_SHOOTERRIGHT);
-        m_shooterTop = new WPI_TalonSRX(RobotMap.CAN_SHOOTERTOP);
+
 
         m_shooterLeft.configFactoryDefault();
         m_shooterRight.configFactoryDefault();
-        m_shooterTop.configFactoryDefault();
+
         /**
          * Constructor:
          * Define and configure your defined objects (ie. talons, vars)
@@ -59,8 +59,5 @@ public class Shooter implements Subsystem {
     }
 
 
-    public static void shooterTopSpin(double topSpin) {
-        m_shooterTop.set(topSpin);
-    }
 
 }
