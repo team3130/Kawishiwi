@@ -55,15 +55,11 @@ public class ColorAlignment implements Command {
                 WheelOfFortune.motorSpin(0);
             }
         }
-        //color green field blue
-        if (color.equals("Green") && fieldColor.equals ("Red")) {
-            WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Blue")) {
-                WheelOfFortune.motorSpin(0);
-            }
-        }
-        //BLUE
-        //Blue and Blue
+        /*END OF RED
+
+        BLUE
+
+        Blue and Blue */
         if (color.equals("Blue") && fieldColor.equals ("Blue")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Red")) {
@@ -84,8 +80,11 @@ public class ColorAlignment implements Command {
                 WheelOfFortune.motorSpin(0);
             }
         }
-        // GREEN
-        //Green 1 to (Yellow)
+        /*END OF BLUE
+
+        GREEN
+
+        Green 1 to (Yellow)*/
         if (color.equals("Green") && fieldColor.equals("Green")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Yellow")) {
@@ -107,8 +106,11 @@ public class ColorAlignment implements Command {
                 WheelOfFortune.motorSpin(0);
             }
         }
-        //YELLOW
-        //Yellow to Green for Yellow)
+        /*END OF GREEN
+
+        YELLOW
+
+        Yellow to Green (for Yellow) */
         if (color.equals("Yellow") && fieldColor.equals ("Yellow")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Green")) {
