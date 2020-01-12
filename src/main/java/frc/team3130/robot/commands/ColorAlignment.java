@@ -13,6 +13,9 @@ public class ColorAlignment implements Command {
     private String fieldColor = "Red";
     private String color = WheelOfFortune.detectColor();
 
+    //used to terminate the program
+    private static boolean colorFound;
+
     public ColorAlignment() {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
 
@@ -23,7 +26,7 @@ public class ColorAlignment implements Command {
      */
     @Override
     public void initialize() {
-
+        colorFound = false;
     }
 
     /**
@@ -39,6 +42,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         // Red Green
@@ -46,6 +50,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Yellow")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         //Red Yellow
@@ -53,6 +58,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         /*END OF RED
@@ -64,6 +70,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         // Blue Yellow
@@ -71,6 +78,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         // Blue Green
@@ -78,6 +86,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Yellow")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         /*END OF BLUE
@@ -89,6 +98,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Yellow")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
 
         }
@@ -97,6 +107,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         //Green 3 (to Blue for Red)
@@ -104,6 +115,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         /*END OF GREEN
@@ -115,6 +127,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         //Yellow 2 (to Blue for Red)
@@ -122,6 +135,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
         //Yellow 3 (to Red for Blue)
@@ -129,6 +143,7 @@ public class ColorAlignment implements Command {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
+                colorFound = true;
             }
         }
     }
@@ -149,7 +164,10 @@ public class ColorAlignment implements Command {
      */
     @Override
     public boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
+        //Code should turn off now
+        if (colorFound) {
+            return true;
+        }
         return false;
     }
 
