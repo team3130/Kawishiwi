@@ -71,13 +71,8 @@ public class OI {
     /**
      * Definitions for joystick buttons start
      */
-    private static JoystickButton spinWheel;
     private static JoystickButton spinShooter;
 
-    private static JoystickButton testTripleSpinFinish;
-
-    private static JoystickButton intakeIn;
-    private static JoystickButton intakeOut;
 
     public void checkTriggers() {
         //Driver
@@ -98,19 +93,10 @@ public class OI {
         driverGamepad = new Joystick(0);
         weaponsGamepad = new Joystick(1);
 
-        spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
-
-        spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_X);
-
-        testTripleSpinFinish = new JoystickButton(driverGamepad, RobotMap.LST_BTN_B);
-
-        intakeIn = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
-        intakeOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_LBUMPER);
-        
-
-        spinWheel.whileHeld(new SpinShooter());
+        spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
 
 
+        spinShooter.whileHeld(new SpinShooter());
 
 
     }

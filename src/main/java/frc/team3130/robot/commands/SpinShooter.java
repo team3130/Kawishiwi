@@ -13,7 +13,7 @@ public class SpinShooter implements Command {
     private final Set<Subsystem> subsystems;
 
     public SpinShooter() {
-        this.subsystems = Set.of(ExampleSubsystem.getInstance());
+        this.subsystems = Set.of(Shooter.getInstance());
     }
 
     /**
