@@ -2,6 +2,7 @@ package frc.team3130.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.team3130.robot.OI;
 import frc.team3130.robot.RobotMap;
 import frc.team3130.robot.subsystems.Climber;
@@ -12,9 +13,11 @@ import java.util.Set;
 
 public class SpinWheel implements Command {
     private final Set<Subsystem> subsystems;
+    private final JoystickButton button;
 
-    public SpinWheel() {
+    public SpinWheel(JoystickButton button) {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
+        this.button = button;
     }
 
     /**
@@ -50,7 +53,7 @@ public class SpinWheel implements Command {
      */
     @Override
     public boolean isFinished() {
-        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_A)) //TODO: move button dependency to higher abstraction point
+        if (!button.get())
             return true;
         return false;
     }
