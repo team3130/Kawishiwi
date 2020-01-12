@@ -10,7 +10,7 @@ import java.util.Set;
 public class ColorAlignment implements Command {
     private final Set<Subsystem> subsystems;
     //To-DO make field color dependent on inputs from field
-    private String fieldColor;
+    private String fieldColor = "Red";
     private String color = WheelOfFortune.detectColor();
 
     public ColorAlignment() {
