@@ -92,9 +92,36 @@ public class ColorAlignment implements Command {
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
             }
-
         }
-
+        //Green 3 (to Blue for Red)
+        if (color.equals("Green") && fieldColor.equals("Red")) {
+            WheelOfFortune.motorSpin(-0.5);
+            if (color.equals("Blue")) {
+                WheelOfFortune.motorSpin(0);
+            }
+        }
+         //YELLOW
+        //Yellow 1 (to Green for Yellow)
+        if (color.equals("Yellow") && fieldColor.equals ("Yellow")) {
+            WheelOfFortune.motorSpin(0.5);
+            if (color.equals("Green")) {
+                WheelOfFortune.motorSpin(0);
+            }
+        }
+        //Yellow 2 (to Blue for Red)
+        if (color.equals("Yellow") && fieldColor.equals ("Red")) {
+            WheelOfFortune.motorSpin(0.5);
+            if (color.equals("Blue")) {
+                WheelOfFortune.motorSpin(0);
+            }
+        }
+         //Yellow 3 (to Red for Blue)
+        if (color.equals("Yellow") && fieldColor.equals ("Blue")) {
+            WheelOfFortune.motorSpin(-0.5);
+            if (color.equals("Red")) {
+                WheelOfFortune.motorSpin(0);
+            }
+        }
     }
 
     /**
