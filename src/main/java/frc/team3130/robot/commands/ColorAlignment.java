@@ -37,20 +37,16 @@ public class ColorAlignment implements Command {
         // color red and field red
         if (color.equals("Red") && fieldColor.equals ("Red")) {
             WheelOfFortune.motorSpin(0.5);
+           System.out.println("Red 1 to Blue for Red");
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
             }
         }
-        //color green field blue
-        if (color.equals("Green") && fieldColor.equals ("Red")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Yellow")) {
-                WheelOfFortune.motorSpin(0);
-            }
-        }
+
         //color yellow field red
         if (color.equals("Yellow") && fieldColor.equals ("Red")) {
             WheelOfFortune.motorSpin(-0.5);
+            System.out.println("Yellow 1 to Green for Red");
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
             }
@@ -59,6 +55,7 @@ public class ColorAlignment implements Command {
         //Blue and Blue
         if (color.equals("Blue") && fieldColor.equals ("Blue")) {
             WheelOfFortune.motorSpin(0.5);
+            System.out.println("Blue 1 to Red for Blue");
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
             }
@@ -66,40 +63,39 @@ public class ColorAlignment implements Command {
         //color blue and field Red
         if (color.equals("Yellow") && fieldColor.equals ("Blue")) {
             WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Green")) {
+            System.out.println("Yellow 2 to Green for Blue");
+            if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
             }
         }
-        // Green Blue
+        //color green field blue
+        if (color.equals("Green") && fieldColor.equals ("Red")) {
+            WheelOfFortune.motorSpin(0.5);
+            System.out.println("Green 1 to Blue for Red");
+            if (color.equals("Blue")) {
+                WheelOfFortune.motorSpin(0);
+            }
+        }
+
+        // Green 2 (to Red for Blue)
         if (color.equals("Green") && fieldColor.equals ("Blue")) {
             WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Yellow")) {
+            System.out.println("Green 2 to Red for Blue");
+            if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
             }
         }
         // GREEN
-        //Green 1 to (Yellow)
+        //Green 3 to (Yellow)
         if (color.equals("Green") && fieldColor.equals("Green")) {
             WheelOfFortune.motorSpin(0.5);
+            System.out.println("Green 3 to Yellow for Green");
             if (color.equals("Yellow")) {
                 WheelOfFortune.motorSpin(0);
             }
 
         }
-        //Green 2 (to Blue)
-        if (color.equals("Green") && fieldColor.equals("Blue")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Red")) {
-                WheelOfFortune.motorSpin(0);
-            }
-        }
-        //Green 3 (to Blue for Red)
-        if (color.equals("Green") && fieldColor.equals("Red")) {
-            WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Blue")) {
-                WheelOfFortune.motorSpin(0);
-            }
-        }
+
          //YELLOW
         //Yellow 1 (to Green for Yellow)
         if (color.equals("Yellow") && fieldColor.equals ("Yellow")) {
