@@ -41,6 +41,8 @@ public class Robot extends TimedRobot {
         scheduler.registerSubsystem(WheelOfFortune.getInstance());
         scheduler.registerSubsystem(Chassis.getInstance());
 
+        scheduler.registerSubsystem(ExampleSubsystem.getInstance());
+
 
 
         //Smartdash output thread
