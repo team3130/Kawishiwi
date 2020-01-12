@@ -21,6 +21,7 @@ public class WheelOfFortune implements Subsystem {
     //Create and define all standard data types needed
     private final I2C.Port i2cPort = I2C.Port.kOnboard;
 
+    //TODO: Switch this to HSV
     private static final Color kCyanTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
     private static final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
     private static final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);

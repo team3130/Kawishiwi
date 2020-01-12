@@ -78,9 +78,7 @@ public class TripleSpinFinish implements Command {
      */
     @Override
     public boolean isFinished() {
-        if(redCounter == 7)
-            return true;
-        return false;
+        return redCounter >= 7;
     }
 
     /**
