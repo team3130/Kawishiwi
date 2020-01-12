@@ -74,6 +74,8 @@ public class OI {
     private static JoystickButton spinWheel;
     private static JoystickButton spinShooter;
 
+    private static JoystickButton testColorAlignment;
+
     private static JoystickButton testTripleSpinFinish;
 
     private static JoystickButton intakeIn;
@@ -104,6 +106,9 @@ public class OI {
 
         testTripleSpinFinish = new JoystickButton(driverGamepad, RobotMap.LST_BTN_B);
 
+        testColorAlignment = new JoystickButton(driverGamepad, RobotMap.LST_BTN_Y);
+
+
         intakeIn = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
         intakeOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_LBUMPER);
 
@@ -115,6 +120,8 @@ public class OI {
         spinWheel.whileHeld(new SpinShooter());
 
         testTripleSpinFinish.whenPressed(new TripleSpinFinish());
+
+        testColorAlignment.whenPressed(new ColorAlignment());
 
 
 

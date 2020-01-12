@@ -10,8 +10,8 @@ import java.util.Set;
 public class ColorAlignment implements Command {
     private final Set<Subsystem> subsystems;
     //TODO: make field color dependent on inputs from field
-    private String fieldColor = "Red";
-    private String color = WheelOfFortune.detectColor();
+    private static String fieldColor;
+
 
     //used to terminate the program
     private static boolean colorFound;
@@ -19,6 +19,7 @@ public class ColorAlignment implements Command {
     public ColorAlignment() {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
 
+        colorFound = false;
     }
 
     /**
@@ -26,7 +27,10 @@ public class ColorAlignment implements Command {
      */
     @Override
     public void initialize() {
+
         colorFound = false;
+        fieldColor = "Red";
+        System.out.println("EPIC");
     }
 
     /**
@@ -35,18 +39,21 @@ public class ColorAlignment implements Command {
      */
     @Override
     public void execute() {
+        String color = WheelOfFortune.detectColor();
 
         //RED
         // color red and field red
-        if (color.equals("Red") && fieldColor.equals ("Red")) {
+        if (color.equals("Red") && fieldColor.equals("Red")) {
+            System.out.println("DETECTING RED");
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
                 colorFound = true;
+                System.out.println(colorFound + " is value of colorFound");
             }
         }
         // Red Green
-        if (color.equals("Red") && fieldColor.equals ("Green")) {
+        if (color.equals("Red") && fieldColor.equals("Green")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Yellow")) {
                 WheelOfFortune.motorSpin(0);
@@ -54,7 +61,7 @@ public class ColorAlignment implements Command {
             }
         }
         //Red Yellow
-        if (color.equals("Red") && fieldColor.equals ("Yellow")) {
+        if (color.equals("Red") && fieldColor.equals("Yellow")) {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
@@ -66,7 +73,7 @@ public class ColorAlignment implements Command {
         BLUE
 
         Blue and Blue */
-        if (color.equals("Blue") && fieldColor.equals ("Blue")) {
+        if (color.equals("Blue") && fieldColor.equals("Blue")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
@@ -74,7 +81,7 @@ public class ColorAlignment implements Command {
             }
         }
         // Blue Yellow
-        if (color.equals("Blue") && fieldColor.equals ("Yellow")) {
+        if (color.equals("Blue") && fieldColor.equals("Yellow")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
@@ -82,7 +89,7 @@ public class ColorAlignment implements Command {
             }
         }
         // Blue Green
-        if (color.equals("Blue") && fieldColor.equals ("Green")) {
+        if (color.equals("Blue") && fieldColor.equals("Green")) {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Yellow")) {
                 WheelOfFortune.motorSpin(0);
@@ -112,6 +119,7 @@ public class ColorAlignment implements Command {
         }
         //Green 3 (to Blue for Red)
         if (color.equals("Green") && fieldColor.equals("Red")) {
+            System.out.println("DETECTING GREEN");
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
@@ -123,7 +131,7 @@ public class ColorAlignment implements Command {
         YELLOW
 
         Yellow to Green (for Yellow) */
-        if (color.equals("Yellow") && fieldColor.equals ("Yellow")) {
+        if (color.equals("Yellow") && fieldColor.equals("Yellow")) {
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Green")) {
                 WheelOfFortune.motorSpin(0);
@@ -131,7 +139,8 @@ public class ColorAlignment implements Command {
             }
         }
         //Yellow 2 (to Blue for Red)
-        if (color.equals("Yellow") && fieldColor.equals ("Red")) {
+        if (color.equals("Yellow") && fieldColor.equals("Red")) {
+            System.out.println("DETECTING YELLOW");
             WheelOfFortune.motorSpin(0.5);
             if (color.equals("Blue")) {
                 WheelOfFortune.motorSpin(0);
@@ -139,7 +148,7 @@ public class ColorAlignment implements Command {
             }
         }
         //Yellow 3 (to Red for Blue)
-        if (color.equals("Yellow") && fieldColor.equals ("Blue")) {
+        if (color.equals("Yellow") && fieldColor.equals("Blue")) {
             WheelOfFortune.motorSpin(-0.5);
             if (color.equals("Red")) {
                 WheelOfFortune.motorSpin(0);
