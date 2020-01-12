@@ -29,19 +29,14 @@ public class Robot extends TimedRobot {
         OI.GetInstance();
 
         //Register and instantiate subsystems (optionally with default commands)
+        //Note: registerSubsystem is NOT needed if setDefaultCommand is used
         scheduler.setDefaultCommand(Chassis.getInstance(), new DefaultDrive());
         scheduler.setDefaultCommand(Climber.getInstance(), new SkyWalker());
-        scheduler.setDefaultCommand(Intake.getInstance(), new IntakeIn());
-        scheduler.setDefaultCommand(Shooter.getInstance(), new SpinShooter());
-        scheduler.setDefaultCommand(WheelOfFortune.getInstance(), new TripleSpinFinish());
-        scheduler.setDefaultCommand(Intake.getInstance(), new IntakeOut());
         scheduler.registerSubsystem(Intake.getInstance());
         scheduler.registerSubsystem(Shooter.getInstance());
-        scheduler.registerSubsystem(Climber.getInstance());
         scheduler.registerSubsystem(WheelOfFortune.getInstance());
-        scheduler.registerSubsystem(Chassis.getInstance());
 
-        scheduler.registerSubsystem(ExampleSubsystem.getInstance());
+        scheduler.registerSubsystem(ExampleSubsystem.getInstance()); //TODO: check if this is even needed
 
 
 

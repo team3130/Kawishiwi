@@ -18,7 +18,7 @@ public class TripleSpinFinish implements Command {
     private static double lastTimestamp;
 
     public TripleSpinFinish() {
-        this.subsystems = Set.of(ExampleSubsystem.getInstance());
+        this.subsystems = Set.of(WheelOfFortune.getInstance());
         redCounter = 0;
         isChanged = false;
     }

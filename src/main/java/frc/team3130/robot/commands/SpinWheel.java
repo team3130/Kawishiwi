@@ -50,7 +50,7 @@ public class SpinWheel implements Command {
      */
     @Override
     public boolean isFinished() {
-        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER))
+        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_A)) //TODO: move button dependency to higher abstraction point
             return true;
         return false;
     }

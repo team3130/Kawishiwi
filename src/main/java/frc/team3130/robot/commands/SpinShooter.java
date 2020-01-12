@@ -13,7 +13,7 @@ public class SpinShooter implements Command {
     private final Set<Subsystem> subsystems;
 
     public SpinShooter() {
-        this.subsystems = Set.of(ExampleSubsystem.getInstance());
+        this.subsystems = Set.of(Shooter.getInstance());
     }
 
     /**
@@ -50,8 +50,7 @@ public class SpinShooter implements Command {
      */
     @Override
     public boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
-        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER))
+        if (!OI.driverGamepad.getRawButton(RobotMap.LST_BTN_RBUMPER)) //TODO: move button dependency to higher abstraction point
             return true;
         return false;
     }

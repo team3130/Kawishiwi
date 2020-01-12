@@ -9,12 +9,12 @@ import java.util.Set;
 
 public class ColorAlignment implements Command {
     private final Set<Subsystem> subsystems;
-    //To-DO make field color dependent on inputs from field
+    //TODO: make field color dependent on inputs from field
     private String fieldColor = "Red";
     private String color = WheelOfFortune.detectColor();
 
     public ColorAlignment() {
-        this.subsystems = Set.of(ExampleSubsystem.getInstance());
+        this.subsystems = Set.of(WheelOfFortune.getInstance());
 
     }
 
