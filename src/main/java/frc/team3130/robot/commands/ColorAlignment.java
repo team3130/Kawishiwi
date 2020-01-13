@@ -9,8 +9,10 @@ import java.util.Set;
 
 public class ColorAlignment implements Command {
     private final Set<Subsystem> subsystems;
+
     //TODO: make field color dependent on inputs from field
     private static String fieldColor;
+    private static String targetColor;
 
 
     //used to terminate the program
@@ -18,8 +20,8 @@ public class ColorAlignment implements Command {
 
     public ColorAlignment() {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
-
         colorFound = false;
+
     }
 
     /**
@@ -30,7 +32,8 @@ public class ColorAlignment implements Command {
 
         colorFound = false;
         fieldColor = "Red";
-        System.out.println("EPIC");
+        targetColor = WheelOfFortune.getTargetColor(fieldColor);
+        System.out.println("Initialized");
     }
 
     /**

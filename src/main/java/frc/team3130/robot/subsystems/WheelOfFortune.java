@@ -20,6 +20,15 @@ public class WheelOfFortune implements Subsystem {
     private static ColorSensorV3 m_colorSensor;
     private static ColorMatch m_colorMatcher;
     private static WPI_TalonSRX m_spinWheel;
+    private static Map<String, String> fieldToTargetColorMap = new HashMap<String, String>();
+
+    static {
+        fieldToTargetColorMap.put("Blue","Red");
+        fieldToTargetColorMap.put("Green","Yellow");
+        fieldToTargetColorMap.put("Red","Blue");
+        fieldToTargetColorMap.put("Yellow","Green");
+    }
+
 
     //Create and define all standard data types needed
     private final I2C.Port i2cPort = I2C.Port.kOnboard;
@@ -55,6 +64,11 @@ public class WheelOfFortune implements Subsystem {
 
         m_spinWheel = new WPI_TalonSRX(RobotMap.CAN_WHEELOFFORTUNE);
         m_spinWheel.configFactoryDefault();
+    }
+
+    //TODO: Add command
+    public static String getTargetColor(String sourceColor){
+        return fieldToTargetColorMap.get(sourceColor);
     }
 
     public static int proximityCheck() {
@@ -96,11 +110,7 @@ public class WheelOfFortune implements Subsystem {
     }
 
     //This is the Map for converting the fieldColor into targetColor, which can be used to clear a lot of confusion while making the algorithm
-    Map<String,String> fieldToTargetColorMap = new HashMap<String,String>();
-    fieldToTargetColorMap.put("Blue","Red");
-    fieldToTargetColorMap.put("Green","Yellow");
-    fieldToTargetColorMap.put("Red","Blue");
-    fieldToTargetColorMap.put("Yellow","Green");
+
 
 
 
