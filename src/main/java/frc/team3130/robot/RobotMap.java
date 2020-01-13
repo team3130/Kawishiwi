@@ -6,7 +6,7 @@ package frc.team3130.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap {
+public class RobotMap<ClimberArm> {
 
     /**
      * Constants
@@ -81,6 +81,7 @@ public class RobotMap {
      * Pneumatics ports
      */
     public static final int PNM_SHIFT = 0;
+    public static final int PNM_CLIMBERARM = 0;
 
 
     /**

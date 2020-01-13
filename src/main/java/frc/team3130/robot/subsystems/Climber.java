@@ -1,6 +1,7 @@
 package frc.team3130.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.RobotMap;
 
@@ -8,6 +9,7 @@ public class Climber implements Subsystem {
 
     //Create necessary objects
     private static WPI_TalonSRX m_skyWalker;
+    private static Solenoid m_climberArm;
 
     //Create and define all standard data types needed
 
@@ -28,7 +30,7 @@ public class Climber implements Subsystem {
 
     private Climber() {
         m_skyWalker = new WPI_TalonSRX(RobotMap.CAN_SKYWALKER);
-        m_skyWalker.configFactoryDefault();
+        m_climberArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_CLIMBERARM);
     }
 
     public static void motorSpin(double spin) {
