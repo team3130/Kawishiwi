@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.util.Color;
 import frc.team3130.robot.RobotMap;
 import frc.team3130.robot.commands.SpinWheel;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class WheelOfFortune implements Subsystem {
 
     //Create necessary objects
@@ -91,6 +94,17 @@ public class WheelOfFortune implements Subsystem {
 
         return colorString;
     }
+
+    //This is the Map for converting the fieldColor into targetColor, which can be used to clear a lot of confusion while making the algorithm
+    Map<String,String> fieldToTargetColorMap = new HashMap<String,String>();
+    fieldToTargetColorMap.put("Blue","Red");
+    fieldToTargetColorMap.put("Green","Yellow");
+    fieldToTargetColorMap.put("Red","Blue");
+    fieldToTargetColorMap.put("Yellow","Green");
+
+
+
+
 
 
 
