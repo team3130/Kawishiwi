@@ -47,8 +47,10 @@ public class ColorAlignment implements Command {
         if (color.equals(targetColor)){
             WheelOfFortune.motorSpin(0);
             colorFound = true;
+            System.out.println("color found");
 
         } else if(color.equals("Red")) {
+            System.out.println("Looking at Red");
             switch (targetColor) {
                 case "Blue":
                     WheelOfFortune.motorSpin(motorSpeed);
@@ -62,6 +64,7 @@ public class ColorAlignment implements Command {
             }
 
         } else if (color.equals("Green")) {
+            System.out.println("Looking at Green");
             switch (targetColor) {
                 case "Red":
                     WheelOfFortune.motorSpin(-motorSpeed);
@@ -74,6 +77,7 @@ public class ColorAlignment implements Command {
                     break;
             }
         } else if (color.equals("Blue")){
+            System.out.println("Looking at " + color);
             switch (targetColor) {
                 case "Red":
                     WheelOfFortune.motorSpin(motorSpeed);
@@ -86,6 +90,7 @@ public class ColorAlignment implements Command {
                     break;
             }
         } else if (color.equals("Yellow")){
+            System.out.println("Looking at Yellow");
             switch (targetColor) {
                 case "Red":
                     WheelOfFortune.motorSpin(motorSpeed);
