@@ -13,6 +13,7 @@ public class ColorAlignment implements Command {
     //TODO: make field color dependent on inputs from field
     private static String fieldColor;
     private static String targetColor;
+    private static double motorSpeed = .2;
 
 
     //used to terminate the program
@@ -50,50 +51,50 @@ public class ColorAlignment implements Command {
         } else if(color.equals("Red")) {
             switch (targetColor) {
                 case "Blue":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Green":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Yellow":
-                    WheelOfFortune.motorSpin(-0.2);
+                    WheelOfFortune.motorSpin(-motorSpeed);
                     break;
             }
 
         } else if (color.equals("Green")) {
             switch (targetColor) {
                 case "Red":
-                    WheelOfFortune.motorSpin(-0.2);
+                    WheelOfFortune.motorSpin(-motorSpeed);
                     break;
                 case "Blue":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Yellow":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
             }
         } else if (color.equals("Blue")){
             switch (targetColor) {
                 case "Red":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Green":
-                    WheelOfFortune.motorSpin(-0.2);
+                    WheelOfFortune.motorSpin(-motorSpeed);
                     break;
                 case "Yellow":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
             }
         } else if (color.equals("Yellow")){
             switch (targetColor) {
                 case "Red":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Green":
-                    WheelOfFortune.motorSpin(0.2);
+                    WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Blue":
-                    WheelOfFortune.motorSpin(-0.2);
+                    WheelOfFortune.motorSpin(-motorSpeed);
                     break;
             }
         }
