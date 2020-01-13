@@ -57,11 +57,11 @@ public class OI {
         return m_pInstance;
     }
 
-    public static double getSkywalker() {
-        double spin = 0;
-        spin += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
-        spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
-        return spin;
+    public static double getTurret() {
+        double turn = 0;
+        turn += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
+        turn -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
+        return turn;
     }
 
     //Joysticks

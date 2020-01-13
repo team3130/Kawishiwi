@@ -21,6 +21,9 @@ public class RobotMap {
     public static double kLChassisTicksPerInch = 4096.0 / (Math.PI * kLWheelDiameter);
     public static double kRChassisTicksPerInch = 4096.0 / (Math.PI * kRWheelDiameter);
 
+    public static double kTurretRotationsPerTick = 1.0 / 4096.0 * 24.0 / 164.0;
+    public static double kTurretOnTargetTolerance = 0.5;
+
     //Motion Profiling
     public static double kChassisMinPointsInBuffer = 5;
     public static double kChassisMPOutputDeadband = 0.01;
@@ -30,6 +33,11 @@ public class RobotMap {
     public static double kMPChassisI = 0.0; //Checked 3/23
     public static double kMPChassisD = 0.0; //Checked 3/23
     public static double kMPChassisF = 1023.0 / (92.0 * (kLChassisTicksPerInch + kRChassisTicksPerInch) / 2.0); //Checked 3/23
+
+    public static double kTurretP = 0.9;
+    public static double kTurretI = 0;
+    public static double kTurretD = 80;
+    public static double kTurretF = 0;
 
     public static double kMPMaxVel = 115.0; //maximum achievable velocity of the drivetrain in in/s NOTE: the actual motion profile should be generated at 80% of this
     public static double kMPMaxAcc = 60.0; ///maximum achievable acceleration of the drivetrain in in/s^2 NOTE: the actual motion profile should be generated at 80% of this
@@ -76,7 +84,7 @@ public class RobotMap {
     public static final int CAN_WHEELOFFORTUNE = 7;
     public static final int CAN_SKYWALKER = 8;
 
-    public static final int CAN_SHOOTERTOP = 9;
+    public static final int CAN_TURRET = 13;
     public static final int CAN_SHOOTERRIGHT = 10;
     public static final int CAN_SHOOTERLEFT = 11;
 
