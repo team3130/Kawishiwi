@@ -23,9 +23,9 @@ public class WheelOfFortune implements Subsystem {
     private static Map<String, String> fieldToTargetColorMap = new HashMap<String, String>();
 
     static {
-        fieldToTargetColorMap.put("Blue","Red");
+        fieldToTargetColorMap.put("Cyan","Red");
         fieldToTargetColorMap.put("Green","Yellow");
-        fieldToTargetColorMap.put("Red","Blue");
+        fieldToTargetColorMap.put("Red","Cyan");
         fieldToTargetColorMap.put("Yellow","Green");
     }
 

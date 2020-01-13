@@ -52,7 +52,7 @@ public class ColorAlignment implements Command {
         } else if(color.equals("Red")) {
             System.out.println("Looking at Red");
             switch (targetColor) {
-                case "Blue":
+                case "Cyan":
                     WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Green":
@@ -69,14 +69,14 @@ public class ColorAlignment implements Command {
                 case "Red":
                     WheelOfFortune.motorSpin(-motorSpeed);
                     break;
-                case "Blue":
+                case "Cyan":
                     WheelOfFortune.motorSpin(motorSpeed);
                     break;
                 case "Yellow":
                     WheelOfFortune.motorSpin(motorSpeed);
                     break;
             }
-        } else if (color.equals("Blue")){
+        } else if (color.equals("Cyan")){
             System.out.println("Looking at " + color);
             switch (targetColor) {
                 case "Red":
@@ -98,7 +98,7 @@ public class ColorAlignment implements Command {
                 case "Green":
                     WheelOfFortune.motorSpin(motorSpeed);
                     break;
-                case "Blue":
+                case "Cyan":
                     WheelOfFortune.motorSpin(-motorSpeed);
                     break;
             }
