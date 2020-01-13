@@ -29,7 +29,6 @@ public class ColorAlignment implements Command {
      */
     @Override
     public void initialize() {
-
         colorFound = false;
         fieldColor = "Red";
         targetColor = WheelOfFortune.getTargetColor(fieldColor);
@@ -44,118 +43,58 @@ public class ColorAlignment implements Command {
     public void execute() {
         String color = WheelOfFortune.detectColor();
 
-        //RED
-        // color red and field red
-        if (color.equals("Red") && fieldColor.equals("Red")) {
-            System.out.println("DETECTING RED");
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Blue")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-                System.out.println(colorFound + " is value of colorFound");
-            }
-        }
-        // Red Green
-        if (color.equals("Red") && fieldColor.equals("Green")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Yellow")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        //Red Yellow
-        if (color.equals("Red") && fieldColor.equals("Yellow")) {
-            WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Green")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        /*END OF RED
+        if (color.equals(targetColor)){
+            WheelOfFortune.motorSpin(0);
+            colorFound = true;
 
-        BLUE
-
-        Blue and Blue */
-        if (color.equals("Blue") && fieldColor.equals("Blue")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Red")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        // Blue Yellow
-        if (color.equals("Blue") && fieldColor.equals("Yellow")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Green")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        // Blue Green
-        if (color.equals("Blue") && fieldColor.equals("Green")) {
-            WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Yellow")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        /*END OF BLUE
-
-        GREEN
-
-        Green 1 to (Yellow)*/
-        if (color.equals("Green") && fieldColor.equals("Green")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Yellow")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
+        } else if(color.equals("Red")) {
+            switch (targetColor) {
+                case "Blue":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
+                case "Green":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
+                case "Yellow":
+                    WheelOfFortune.motorSpin(-0.2);
+                    break;
             }
 
-        }
-        //Green 2 (to Blue)
-        if (color.equals("Green") && fieldColor.equals("Blue")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Red")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
+        } else if (color.equals("Green")) {
+            switch (targetColor) {
+                case "Red":
+                    WheelOfFortune.motorSpin(-0.2);
+                    break;
+                case "Blue":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
+                case "Yellow":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
             }
-        }
-        //Green 3 (to Blue for Red)
-        if (color.equals("Green") && fieldColor.equals("Red")) {
-            System.out.println("DETECTING GREEN");
-            WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Blue")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
+        } else if (color.equals("Blue")){
+            switch (targetColor) {
+                case "Red":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
+                case "Green":
+                    WheelOfFortune.motorSpin(-0.2);
+                    break;
+                case "Yellow":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
             }
-        }
-        /*END OF GREEN
-
-        YELLOW
-
-        Yellow to Green (for Yellow) */
-        if (color.equals("Yellow") && fieldColor.equals("Yellow")) {
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Green")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        //Yellow 2 (to Blue for Red)
-        if (color.equals("Yellow") && fieldColor.equals("Red")) {
-            System.out.println("DETECTING YELLOW");
-            WheelOfFortune.motorSpin(0.5);
-            if (color.equals("Blue")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
-            }
-        }
-        //Yellow 3 (to Red for Blue)
-        if (color.equals("Yellow") && fieldColor.equals("Blue")) {
-            WheelOfFortune.motorSpin(-0.5);
-            if (color.equals("Red")) {
-                WheelOfFortune.motorSpin(0);
-                colorFound = true;
+        } else if (color.equals("Yellow")){
+            switch (targetColor) {
+                case "Red":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
+                case "Green":
+                    WheelOfFortune.motorSpin(0.2);
+                    break;
+                case "Blue":
+                    WheelOfFortune.motorSpin(-0.2);
+                    break;
             }
         }
     }
