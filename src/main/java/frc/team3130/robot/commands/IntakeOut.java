@@ -27,7 +27,7 @@ public class IntakeOut implements Command {
      */
     @Override
     public void execute() {
-        Intake.runIntake(-0.6);
+        Intake.runIntake(-0.2);
     }
 
     /**
