@@ -25,7 +25,7 @@ import frc.team3130.robot.util.Rotation2d;
  * 
  */
 public class TurretAngle implements Subsystem {
-	private static TalonSRX m_turret;
+	private static WPI_TalonSRX m_turret;
 
   //Instance Handling
   	private static TurretAngle m_pInstance;
@@ -42,25 +42,25 @@ public class TurretAngle implements Subsystem {
   		if(m_pInstance == null) m_pInstance = new TurretAngle();
   		return m_pInstance;
   	}
-  	
+
 
   	
 	private TurretAngle() {
 		// The turret has one Talon to control angle.
 		m_turret = new WPI_TalonSRX(RobotMap.CAN_TURRET);
 		m_turret.setNeutralMode(NeutralMode.Brake);
-		m_turret.setControlFramePeriod(StatusFrame.Status_2_Feedback0, 10);
 
 		m_turret.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
 		m_turret.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
-		m_turret.enableVoltageCompensation();
-
+		m_turret.enableVoltageCompensation(true);
+		m_turret.set(ControlMode.Position,0);
 		configPIDF(m_turret,
 				RobotMap.kTurretP,
 				RobotMap.kTurretI,
 				RobotMap.kTurretD,
 				0.0);
+
 		/*m_turret.setPID(Constants.kTurretKp, Constants.kTurretKi, Constants.kTurretKd, Constants.kTurretKf,
 				Constants.kTurretIZone, Constants.kTurretRampRate, 0);*/
 		m_turret.selectProfileSlot(0,0);
@@ -81,14 +81,9 @@ public class TurretAngle implements Subsystem {
 	}
 
 	// Manually move the turret (and put it into vbus mode if it isn't already). Input range -1.0 to 1.0
-	public synchronized static void setOpenLoop(double speed) {
-		m_turret.set(ControlMode.Position, -.14*speed );
-	}
+
 
 	// Tell the Talon it is at a given position.
-	synchronized static void reset(Rotation2d actual_rotation) {
-		m_turret.setSelectedSensorPosition((int) (actual_rotation.getRadians() / (2 * Math.PI * RobotMap.kTurretRotationsPerTick)));
-	}
 
 
 	public synchronized static double getAngleDegrees() {
@@ -106,7 +101,7 @@ public class TurretAngle implements Subsystem {
 
 	// We are "OnTarget" if we are in position mode and close to the setpoint.
 	public synchronized static boolean isOnTarget() {
-		return (m_turret.getControlMode() == TalonSRX.
+		return (m_turret.getControlMode() == m_turret.getControlMode().Position
 				&& Math.abs(getError()) < RobotMap.kTurretOnTargetTolerance);
 	}
 
@@ -119,9 +114,6 @@ public class TurretAngle implements Subsystem {
 		return m_turret;
 	}
 
-	public synchronized static void stop() {
-		setOpenLoop(0);
-	}
 
 
 
@@ -132,12 +124,13 @@ public class TurretAngle implements Subsystem {
 		SmartDashboard.putBoolean("turret_on_target", isOnTarget());
 	}
 
-	public static void zeroSensors() {
-		reset(new Rotation2d());
+	public static void configPIDF(WPI_TalonSRX _talon, double kP, double kI, double kD, double kF) {
+		_talon.config_kP(0, kP, 0);
+		_talon.config_kI(0, kI, 0);
+		_talon.config_kD(0, kD, 0);
+		_talon.config_kF(0, kF, 0);
 	}
 
-	protected void initDefaultCommand() {
-		setDefaultCommand(new TurnTurret());
-		
-	}
+
+
 }
