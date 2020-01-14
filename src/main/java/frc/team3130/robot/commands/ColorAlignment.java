@@ -46,7 +46,6 @@ public class ColorAlignment implements Command {
 
         if (color.equals(targetColor)){
             WheelOfFortune.motorSpin(0);
-            colorFound = true;
             System.out.println("color found");
 
         } else if(color.equals("Red")) {
@@ -121,8 +120,10 @@ public class ColorAlignment implements Command {
      */
     @Override
     public boolean isFinished() {
+        String color = WheelOfFortune.detectColor();
         //Code should turn off now
-        if (colorFound) {
+        if (color.equals(targetColor)) {
+            WheelOfFortune.motorSpin(0);
             return true;
         }
         return false;
