@@ -2,9 +2,8 @@ package frc.team3130.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.team3130.robot.OI;
-import frc.team3130.robot.subsystems.ExampleSubsystem;
-import frc.team3130.robot.subsystems.Shooter;
+import frc.team3130.robot.subsystems.TurretAngle;
+import frc.team3130.robot.vision.Limelight;
 
 import java.util.Set;
 
@@ -12,7 +11,7 @@ public class TurnTurret implements Command {
     private final Set<Subsystem> subsystems;
 
     public TurnTurret() {
-        this.subsystems = Set.of(Shooter.getInstance());
+        this.subsystems = Set.of(TurretAngle.GetInstance());
     }
 
     /**
@@ -29,6 +28,10 @@ public class TurnTurret implements Command {
      */
     @Override
     public void execute() {
+        double offset = Limelight.GetInstance().getDegHorizontalOffset();
+        double turretAngle = TurretAngle.getAngleDegrees();
+
+        TurretAngle.setAngle(turretAngle + offset);
 
     }
 
@@ -48,8 +51,7 @@ public class TurnTurret implements Command {
      */
     @Override
     public boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
-        return false;
+        return TurretAngle.isOnTarget();
     }
 
     /**

@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team3130.robot.commands.*;
 import frc.team3130.robot.subsystems.*;
+import frc.team3130.robot.vision.Limelight;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,15 +29,11 @@ public class Robot extends TimedRobot {
         //Instantiate operator interface
         OI.GetInstance();
 
+        Limelight.GetInstance();
+
         //Register and instantiate subsystems (optionally with default commands)
         scheduler.setDefaultCommand(Chassis.getInstance(), new DefaultDrive());
-        scheduler.setDefaultCommand(ExampleSubsystem.getInstance(), new ExampleCommand());
-        scheduler.setDefaultCommand(Shooter.getInstance(), new TurnTurret());
         scheduler.registerSubsystem(Chassis.getInstance());
-        scheduler.registerSubsystem(Shooter.getInstance());
-        scheduler.registerSubsystem(ExampleSubsystem.getInstance());
-
-
 
         //Smartdash output thread
         Thread t = new Thread(() -> {
@@ -104,6 +101,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         scheduler.run();
+        Limelight.GetInstance().updateData();
     }
 
     /**

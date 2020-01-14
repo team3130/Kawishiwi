@@ -71,7 +71,7 @@ public class OI {
     /**
      * Definitions for joystick buttons start
      */
-    private static JoystickButton spinShooter;
+    private static JoystickButton aimTurret;
 
 
     public void checkTriggers() {
@@ -93,10 +93,10 @@ public class OI {
         driverGamepad = new Joystick(0);
         weaponsGamepad = new Joystick(1);
 
-        spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
+        aimTurret = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
 
 
-        spinShooter.whileHeld(new SpinShooter());
+        aimTurret.whileHeld(new TurnTurret());
 
 
     }
