@@ -4,15 +4,11 @@ package frc.team3130.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.StatusFrame;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.RobotMap;
-import frc.team3130.robot.commands.TurnTurret;
-import frc.team3130.robot.util.Rotation2d;
 
 /**
  * The TurretAngle subsystem controls the angle the ball is fired. The Turret can only 
@@ -50,8 +46,10 @@ public class TurretAngle implements Subsystem {
 		m_turret = new WPI_TalonSRX(RobotMap.CAN_TURRET);
 		m_turret.setNeutralMode(NeutralMode.Brake);
 
-		m_turret.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
 		m_turret.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+
+		m_turret.overrideLimitSwitchesEnable(false);
+		m_turret.overrideSoftLimitsEnable(false);
 
 		m_turret.enableVoltageCompensation(true);
 		m_turret.set(ControlMode.Position,0);
@@ -69,14 +67,14 @@ public class TurretAngle implements Subsystem {
 		
 
 
-		//m_turret.clearStickyFaults();
+		m_turret.clearStickyFaults();
 	}
 
 	// Set the desired angle of the turret (and put it into position control
 	// mode if it isn't already).
 	public synchronized static void setAngle(double angle_deg) {
 		// In Position mode, outputValue set is in rotations of the motor 
-		//DEBUG: System.out.println("Set value:  " + (angle_deg / 360.0) * (164.0 / 34.0) + " -------------");
+		System.out.println("Set value:  " + (angle_deg / 360.0) * (164.0 / 34.0) + " -------------");
 		m_turret.set(ControlMode.Position, (angle_deg / 360.0) * (164.0 / 24.0));
 	}
 
@@ -87,7 +85,7 @@ public class TurretAngle implements Subsystem {
 
 
 	public synchronized static double getAngleDegrees() {
-		double tangle = RobotMap.kTurretRotationsPerTick * m_turret.getSensorCollection().getPulseWidthPosition() * 2.0 * Math.PI;
+		double tangle = RobotMap.kTurretRotationsPerTick * m_turret.getSelectedSensorPosition() * 2.0 * Math.PI;
 		return Math.toDegrees(tangle);
 	}
 
@@ -109,7 +107,7 @@ public class TurretAngle implements Subsystem {
 	 * @return If the turret is within its mechanical limits and in the right
 	 *		 state.
 	 */
-	
+
 	public static TalonSRX getMotor(){
 		return m_turret;
 	}

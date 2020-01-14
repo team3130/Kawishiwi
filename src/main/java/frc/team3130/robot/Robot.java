@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
 
         //Register and instantiate subsystems (optionally with default commands)
         scheduler.setDefaultCommand(Chassis.getInstance(), new DefaultDrive());
-        scheduler.registerSubsystem(Chassis.getInstance());
+        scheduler.registerSubsystem(TurretAngle.GetInstance());
 
         //Smartdash output thread
         Thread t = new Thread(() -> {
@@ -113,12 +113,13 @@ public class Robot extends TimedRobot {
 
     public void outputToSmartDashboard() {
         Chassis.outputToSmartDashboard();
+        TurretAngle.GetInstance().outputToSmartDashboard();
+
     }
 
     public void writePeriodicOutputs() {
     }
 
     public void resetSubsystems() {
-
     }
 }

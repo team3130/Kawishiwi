@@ -19,7 +19,12 @@ public class TurnTurret implements Command {
      */
     @Override
     public void initialize() {
+        double offset = Limelight.GetInstance().getDegHorizontalOffset();
+        double turretAngle = TurretAngle.getAngleDegrees();
 
+        System.out.println("ANGLE OFFSET: " + offset);
+
+        TurretAngle.GetInstance().setAngle(turretAngle + offset);
     }
 
     /**
@@ -28,10 +33,7 @@ public class TurnTurret implements Command {
      */
     @Override
     public void execute() {
-        double offset = Limelight.GetInstance().getDegHorizontalOffset();
-        double turretAngle = TurretAngle.getAngleDegrees();
 
-        TurretAngle.setAngle(turretAngle + offset);
 
     }
 
