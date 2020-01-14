@@ -19,7 +19,6 @@ public class TripleSpinFinish implements Command {
 
     public TripleSpinFinish() {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
-        redCounter = 0;
         isChanged = false;
     }
 
@@ -30,6 +29,7 @@ public class TripleSpinFinish implements Command {
     public void initialize() {
         timer.reset();
         timer.start();
+        redCounter = 0;
         WheelOfFortune.motorSpin(0.5);
     }
 
