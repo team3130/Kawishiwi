@@ -1,5 +1,6 @@
 package frc.team3130.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 public class DeployWheelOfFortune implements Command {
     private final Set<Subsystem> subsystems;
+    Timer timer = new Timer();
 
     public DeployWheelOfFortune() {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
@@ -19,7 +21,8 @@ public class DeployWheelOfFortune implements Command {
      */
     @Override
     public void initialize() {
-
+        timer.reset();
+        timer.start();
     }
 
     /**
@@ -46,7 +49,6 @@ public class DeployWheelOfFortune implements Command {
      */
     @Override
     public boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
         return false;
     }
 
