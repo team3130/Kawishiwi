@@ -23,10 +23,10 @@ public class WheelOfFortune implements Subsystem {
     private static Map<String, String> fieldToTargetColorMap = new HashMap<String, String>();
 
     static {
-        fieldToTargetColorMap.put("Cyan","Red");
-        fieldToTargetColorMap.put("Green","Yellow");
-        fieldToTargetColorMap.put("Red","Cyan");
-        fieldToTargetColorMap.put("Yellow","Green");
+        fieldToTargetColorMap.put("Cyan", "Red");
+        fieldToTargetColorMap.put("Green", "Yellow");
+        fieldToTargetColorMap.put("Red", "Cyan");
+        fieldToTargetColorMap.put("Yellow", "Green");
     }
 
 
@@ -67,7 +67,7 @@ public class WheelOfFortune implements Subsystem {
     }
 
     //TODO: Add command
-    public static String getTargetColor(String sourceColor){
+    public static String getTargetColor(String sourceColor) {
         return fieldToTargetColorMap.get(sourceColor);
     }
 
@@ -82,13 +82,12 @@ public class WheelOfFortune implements Subsystem {
      * @return String name of the most likely color
      */
 
-    public String converterColor(){
+    public String converterColor() {
         int r = m_colorSensor.getRed();
         int g = m_colorSensor.getGreen();
         int b = m_colorSensor.getBlue();
 
         float hsb[] = java.awt.Color.RGBtoHSB(r, g, b, null);
-
 
 
         //Potential algorithm for rgb to hsb
@@ -107,8 +106,7 @@ public class WheelOfFortune implements Subsystem {
         }
 
         */
-
-
+return "blue";
 
     }
 

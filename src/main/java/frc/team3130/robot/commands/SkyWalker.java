@@ -28,7 +28,7 @@ public class SkyWalker implements Command {
      */
     @Override
     public void execute() {
-        Climber.motorSpin(OI.getSkywalker());
+        //Climber.motorSpin(OI.getSkywalker());
     }
 
     /**
