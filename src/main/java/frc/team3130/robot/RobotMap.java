@@ -65,7 +65,7 @@ public class RobotMap<ClimberArm> {
 
     public static final int CAN_WHEELOFFORTUNE = 9;
 
-    public static final int CAN_SKYWALKER = 7;
+    public static final int CAN_SKYWALKER = 106; //TODO: map these two
 
     public static final int CAN_SHOOTERTOP = 105;
     public static final int CAN_SHOOTERRIGHT = 10;
@@ -74,7 +74,7 @@ public class RobotMap<ClimberArm> {
 
 
 
-    public static final int CAN_INTAKE1 = 8; //TODO: map this
+    public static final int CAN_INTAKE1 = 8; //TODO: map these
     public static final int CAN_HOPPERL = 101;
     public static final int CAN_HOPPERR = 102;
     public static final int CAN_HOPPERTOP = 103;

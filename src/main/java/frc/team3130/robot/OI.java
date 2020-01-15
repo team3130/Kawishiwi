@@ -57,15 +57,14 @@ public class OI {
         return m_pInstance;
     }
 
-   /**
-    *  public static double getSkywalker() {
+
+      public static double getSkywalker() {
         double spin = 0;
         spin += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
         spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
         return spin;
     }
-    temporarily commented out for testing intake/outtake
-**/
+
     //Joysticks
     public static Joystick driverGamepad;
     public static Joystick weaponsGamepad;
