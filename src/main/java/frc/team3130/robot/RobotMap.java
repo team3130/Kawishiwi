@@ -67,16 +67,17 @@ public class RobotMap<ClimberArm> {
 
     public static final int CAN_SKYWALKER = 7;
 
-    public static final int CAN_SHOOTERTOP = 8;
+    public static final int CAN_SHOOTERTOP = 105;
     public static final int CAN_SHOOTERRIGHT = 10;
 
     public static final int CAN_SHOOTERLEFT = 11;
 
 
 
-    public static final int CAN_INTAKE1 = 100; //TODO: map this
-    public static final int CAN_INTAKE2 = 101; //TODO: map this
-
+    public static final int CAN_INTAKE1 = 8; //TODO: map this
+    public static final int CAN_HOPPERL = 101;
+    public static final int CAN_HOPPERR = 102;
+    public static final int CAN_HOPPERTOP = 103;
     /**
      * Pneumatics ports
      */

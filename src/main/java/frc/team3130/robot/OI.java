@@ -57,13 +57,15 @@ public class OI {
         return m_pInstance;
     }
 
-    public static double getSkywalker() {
+   /**
+    *  public static double getSkywalker() {
         double spin = 0;
         spin += driverGamepad.getRawAxis(RobotMap.LST_AXS_RTRIGGER);
         spin -= driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER);
         return spin;
     }
-
+    temporarily commented out for testing intake/outtake
+**/
     //Joysticks
     public static Joystick driverGamepad;
     public static Joystick weaponsGamepad;
@@ -78,8 +80,10 @@ public class OI {
 
     private static JoystickButton testTripleSpinFinish;
 
-    private static JoystickButton intakeIn;
+    private static JoystickTrigger intakeIn;
     private static JoystickButton intakeOut;
+    private static JoystickTrigger hopperIn;
+    private static JoystickButton hopperOut;
 
     public void checkTriggers() {
         //Driver
@@ -109,11 +113,15 @@ public class OI {
         testColorAlignment = new JoystickButton(driverGamepad, RobotMap.LST_BTN_Y);
 
 
-        intakeIn = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
+        intakeIn = new JoystickTrigger(driverGamepad, RobotMap.LST_BTN_RBUMPER);
         intakeOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_LBUMPER);
+        hopperIn = new JoystickTrigger(driverGamepad, RobotMap.LST_AXS_RTRIGGER);
+        hopperOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
 
-        intakeIn.whileHeld(new IntakeIn());
+        intakeIn.whenActive(new IntakeIn());
         intakeOut.whileHeld(new IntakeOut());
+        hopperIn.whenActive(new HopperIn());
+        hopperOut.whileHeld(new HopperOut());
 
         spinWheel.whileHeld(new SpinWheel(spinWheel));
 

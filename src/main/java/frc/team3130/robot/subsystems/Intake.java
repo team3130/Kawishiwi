@@ -9,8 +9,7 @@ import frc.team3130.robot.RobotMap;
 public class Intake implements Subsystem {
 
     //Create necessary objects
-    private static WPI_TalonSRX m_intakeMotorMaster;
-    private static WPI_TalonSRX m_intakeMotorSlave;
+    private static WPI_TalonSRX m_intakeMotor;
 
     //Create and define all standard data types needed
 
@@ -30,22 +29,15 @@ public class Intake implements Subsystem {
     }
 
     private Intake() {
-        m_intakeMotorMaster = new WPI_TalonSRX(RobotMap.CAN_INTAKE1);
-        m_intakeMotorSlave = new WPI_TalonSRX(RobotMap.CAN_INTAKE2);
+        m_intakeMotor = new WPI_TalonSRX(RobotMap.CAN_INTAKE1);
 
-        m_intakeMotorMaster.configFactoryDefault();
-        m_intakeMotorSlave.configFactoryDefault();
+        m_intakeMotor.configFactoryDefault();
 
-        m_intakeMotorMaster.setNeutralMode(NeutralMode.Coast);
-        m_intakeMotorSlave.setNeutralMode(NeutralMode.Coast);
-
-        m_intakeMotorSlave.set(ControlMode.Follower, RobotMap.CAN_INTAKE1);
-
-        m_intakeMotorMaster.overrideLimitSwitchesEnable(false);
+        m_intakeMotor.setNeutralMode(NeutralMode.Coast);
     }
 
     public static void runIntake(double speed){
-        m_intakeMotorMaster.set(speed);
+        m_intakeMotor.set(speed);
     }
 
 }
