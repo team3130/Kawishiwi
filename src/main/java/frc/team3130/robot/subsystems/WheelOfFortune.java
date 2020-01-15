@@ -6,13 +6,13 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.RobotMap;
-import frc.team3130.robot.commands.SpinWheel;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class WheelOfFortune implements Subsystem {
 
@@ -81,8 +81,43 @@ public class WheelOfFortune implements Subsystem {
      *
      * @return String name of the most likely color
      */
+
+    public String converterColor(){
+        int r = m_colorSensor.getRed();
+        int g = m_colorSensor.getGreen();
+        int b = m_colorSensor.getBlue();
+
+        float hsb[] = java.awt.Color.RGBtoHSB(r, g, b, null);
+
+
+
+        //Potential algorithm for rgb to hsb
+        /*
+        if      (hsb[1] < 0.1 && hsb[2] > 0.9) nearlyWhite();
+        else if (hsb[2] < 0.1) nearlyBlack();
+        else {
+            float deg = hsb[0]*360;
+            if      (deg >=   0 && deg <  30) red();
+            else if (deg >=  30 && deg <  90) yellow();
+            else if (deg >=  90 && deg < 150) green();
+            else if (deg >= 150 && deg < 210) cyan();
+            else if (deg >= 210 && deg < 270) blue();
+            else if (deg >= 270 && deg < 330) magenta();
+            else red();
+        }
+
+        */
+
+
+
+    }
+
+
+
+
     public static String detectColor() {
         Color detectedColor = m_colorSensor.getColor();
+
 
         String colorString;
         ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
