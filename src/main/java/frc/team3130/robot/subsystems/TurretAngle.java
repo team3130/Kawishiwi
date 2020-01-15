@@ -75,7 +75,7 @@ public class TurretAngle implements Subsystem {
 	public synchronized static void setAngle(double angle_deg) {
 		// In Position mode, outputValue set is in rotations of the motor 
 		System.out.println("Set value:  " + (angle_deg / 360.0) * (164.0 / 34.0) + " -------------");
-		m_turret.set(ControlMode.Position, (angle_deg / 360.0) * (164.0 / 24.0));
+		m_turret.set(ControlMode.Position, (angle_deg / 360.0) * (164.0 / 24.0) * 4098.0);
 	}
 
 	// Manually move the turret (and put it into vbus mode if it isn't already). Input range -1.0 to 1.0
