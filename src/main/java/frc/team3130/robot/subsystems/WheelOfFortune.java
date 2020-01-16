@@ -82,7 +82,7 @@ public class WheelOfFortune implements Subsystem {
      * @return String name of the most likely color
      */
 
-    public String detectHSB() {
+    public static String detectHSB() {
         int r = m_colorSensor.getRed();
         int g = m_colorSensor.getGreen();
         int b = m_colorSensor.getBlue();
