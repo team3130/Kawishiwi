@@ -82,32 +82,43 @@ public class WheelOfFortune implements Subsystem {
      * @return String name of the most likely color
      */
 
-    public String converterColor() {
+    public String detectHSB() {
         int r = m_colorSensor.getRed();
         int g = m_colorSensor.getGreen();
         int b = m_colorSensor.getBlue();
 
         float hsb[] = java.awt.Color.RGBtoHSB(r, g, b, null);
 
-
         //Potential algorithm for rgb to hsb
-        /*
-        if      (hsb[1] < 0.1 && hsb[2] > 0.9) nearlyWhite();
-        else if (hsb[2] < 0.1) nearlyBlack();
+        if      (hsb[1] < 0.1 && hsb[2] > 0.9) {
+            return "White";
+        }
+        else if (hsb[2] < 0.1) {
+            return "Black";
+        }
         else {
             float deg = hsb[0]*360;
-            if      (deg >=   0 && deg <  30) red();
-            else if (deg >=  30 && deg <  90) yellow();
-            else if (deg >=  90 && deg < 150) green();
-            else if (deg >= 150 && deg < 210) cyan();
-            else if (deg >= 210 && deg < 270) blue();
-            else if (deg >= 270 && deg < 330) magenta();
-            else red();
+
+            if( (deg >=  0 && deg <  30) || (deg >330 && deg <=359)){
+                return "Red";
+            }
+            else if (deg >=  30 && deg <  90) {
+                return "Yellow";
+            }
+            else if (deg >=  90 && deg < 150){
+                return "Green";
+            }
+            else if (deg >= 150 && deg < 210){
+                return "Cyan";
+            }
+
+            else{
+                System.out.println("bruh what color is this");
+                return "Bruh";
+            }
         }
 
-        */
-return "blue";
-//change this^, it is only here to get rid of errors
+
     }
 
 
