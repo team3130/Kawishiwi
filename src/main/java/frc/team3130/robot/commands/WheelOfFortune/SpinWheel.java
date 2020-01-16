@@ -1,16 +1,23 @@
-package frc.team3130.robot.commands;
+package frc.team3130.robot.commands.WheelOfFortune;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.team3130.robot.subsystems.Intake;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.team3130.robot.OI;
+import frc.team3130.robot.RobotMap;
+import frc.team3130.robot.subsystems.Climber;
+import frc.team3130.robot.subsystems.ExampleSubsystem;
+import frc.team3130.robot.subsystems.WheelOfFortune;
 
 import java.util.Set;
 
-public class IntakeOut implements Command {
+public class SpinWheel implements Command {
     private final Set<Subsystem> subsystems;
+    private final JoystickButton button;
 
-    public IntakeOut() {
-        this.subsystems = Set.of(Intake.getInstance());
+    public SpinWheel(JoystickButton button) {
+        this.subsystems = Set.of(WheelOfFortune.getInstance());
+        this.button = button;
     }
 
     /**
@@ -27,7 +34,7 @@ public class IntakeOut implements Command {
      */
     @Override
     public void execute() {
-        Intake.runIntake(-0.5d);
+        WheelOfFortune.motorSpin(.3);
     }
 
     /**
@@ -46,6 +53,8 @@ public class IntakeOut implements Command {
      */
     @Override
     public boolean isFinished() {
+        if (!button.get())
+            return true;
         return false;
     }
 
@@ -59,8 +68,9 @@ public class IntakeOut implements Command {
      */
     @Override
     public void end(boolean interrupted) {
-        Intake.runIntake(0.0);
+        WheelOfFortune.motorSpin(0);
     }
+
 
     /**
      * <p>

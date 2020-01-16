@@ -1,24 +1,19 @@
-package frc.team3130.robot.commands;
+package frc.team3130.robot.commands.Chassis;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.team3130.robot.OI;
-import frc.team3130.robot.RobotMap;
-import frc.team3130.robot.subsystems.Climber;
-import frc.team3130.robot.subsystems.ExampleSubsystem;
-import frc.team3130.robot.subsystems.WheelOfFortune;
+import frc.team3130.robot.subsystems.Chassis;
 
 import java.util.Set;
 
-public class SpinWheel implements Command {
+public class DefaultDrive implements Command {
     private final Set<Subsystem> subsystems;
-    private final JoystickButton button;
 
-    public SpinWheel(JoystickButton button) {
-        this.subsystems = Set.of(WheelOfFortune.getInstance());
-        this.button = button;
+    public DefaultDrive() {
+        this.subsystems = Set.of(Chassis.getInstance());
     }
+
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -34,7 +29,13 @@ public class SpinWheel implements Command {
      */
     @Override
     public void execute() {
-        WheelOfFortune.motorSpin(.3);
+
+        double moveSpeed = -OI.driverGamepad.getRawAxis(1); //joystick's y axis is inverted
+        double turnSpeed = OI.driverGamepad.getRawAxis(4); //arcade drive has left as positive, but we want right to be positive
+
+
+        double turnThrottle = (0.70);
+        Chassis.driveArcade(moveSpeed, turnSpeed * turnThrottle, true);
     }
 
     /**
@@ -53,8 +54,6 @@ public class SpinWheel implements Command {
      */
     @Override
     public boolean isFinished() {
-        if (!button.get())
-            return true;
         return false;
     }
 
@@ -68,9 +67,8 @@ public class SpinWheel implements Command {
      */
     @Override
     public void end(boolean interrupted) {
-        WheelOfFortune.motorSpin(0);
-    }
 
+    }
 
     /**
      * <p>

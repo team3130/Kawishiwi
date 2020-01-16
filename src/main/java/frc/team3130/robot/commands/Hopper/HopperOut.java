@@ -1,19 +1,17 @@
-package frc.team3130.robot.commands;
+package frc.team3130.robot.commands.Hopper;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.team3130.robot.OI;
-import frc.team3130.robot.subsystems.Chassis;
+import frc.team3130.robot.subsystems.Hopper;
 
 import java.util.Set;
 
-public class DefaultDrive implements Command {
+public class HopperOut implements Command {
     private final Set<Subsystem> subsystems;
 
-    public DefaultDrive() {
-        this.subsystems = Set.of(Chassis.getInstance());
+    public HopperOut() {
+        this.subsystems = Set.of(Hopper.getInstance());
     }
-
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
@@ -28,15 +26,7 @@ public class DefaultDrive implements Command {
      * (That is, it is called repeatedly until {@link #isFinished()}) returns true.)
      */
     @Override
-    public void execute() {
-
-        double moveSpeed = -OI.driverGamepad.getRawAxis(1); //joystick's y axis is inverted
-        double turnSpeed = OI.driverGamepad.getRawAxis(4); //arcade drive has left as positive, but we want right to be positive
-
-
-        double turnThrottle = (0.70);
-        Chassis.driveArcade(moveSpeed, turnSpeed * turnThrottle, true);
-    }
+    public void execute() { Hopper.runHopper(0.2); }
 
     /**
      * <p>
@@ -54,6 +44,7 @@ public class DefaultDrive implements Command {
      */
     @Override
     public boolean isFinished() {
+        // TODO: Make this return true when this Command no longer needs to run execute()
         return false;
     }
 
@@ -66,9 +57,7 @@ public class DefaultDrive implements Command {
      * @param interrupted whether the command was interrupted/canceled
      */
     @Override
-    public void end(boolean interrupted) {
-
-    }
+    public void end(boolean interrupted) { Hopper.runHopper(0.0);}
 
     /**
      * <p>

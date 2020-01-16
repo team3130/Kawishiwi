@@ -4,7 +4,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.team3130.robot.commands.*;
+import frc.team3130.robot.commands.Chassis.DefaultDrive;
+import frc.team3130.robot.commands.Climber.SkyWalker;
 import frc.team3130.robot.subsystems.*;
 
 /**

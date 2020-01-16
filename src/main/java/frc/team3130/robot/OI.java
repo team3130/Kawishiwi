@@ -3,7 +3,14 @@ package frc.team3130.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.team3130.robot.commands.*;
+import frc.team3130.robot.commands.Hopper.HopperIn;
+import frc.team3130.robot.commands.Hopper.HopperOut;
+import frc.team3130.robot.commands.Intake.IntakeIn;
+import frc.team3130.robot.commands.Intake.IntakeOut;
+import frc.team3130.robot.commands.Shooter.SpinShooter;
+import frc.team3130.robot.commands.WheelOfFortune.ColorAlignment;
+import frc.team3130.robot.commands.WheelOfFortune.SpinWheel;
+import frc.team3130.robot.commands.WheelOfFortune.TripleSpinFinish;
 
 
 public class OI {
