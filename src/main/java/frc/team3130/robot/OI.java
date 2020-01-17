@@ -91,6 +91,8 @@ public class OI {
     private static JoystickTrigger hopperIn;
     private static JoystickButton hopperOut;
 
+    private static JoystickButton testTestHSB;
+
     public void checkTriggers() {
         //Driver
         if (Math.abs(OI.driverGamepad.getRawAxis(RobotMap.LST_AXS_LTRIGGER)) >= RobotMap.kIntakeTriggerDeadband) {
@@ -110,7 +112,9 @@ public class OI {
         driverGamepad = new Joystick(0);
         weaponsGamepad = new Joystick(1);
 
-        spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
+        //spinWheel = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
+
+        testTestHSB = new JoystickButton(driverGamepad, RobotMap.LST_BTN_A);
 
         spinShooter = new JoystickButton(driverGamepad, RobotMap.LST_BTN_X);
 
@@ -124,6 +128,8 @@ public class OI {
         hopperIn = new JoystickTrigger(driverGamepad, RobotMap.LST_AXS_RTRIGGER);
         hopperOut = new JoystickButton(driverGamepad, RobotMap.LST_BTN_RBUMPER);
 
+
+
         intakeIn.whenActive(new IntakeIn());
         intakeOut.whileHeld(new IntakeOut());
         hopperIn.whenActive(new HopperIn());
@@ -136,6 +142,10 @@ public class OI {
         testTripleSpinFinish.whenPressed(new TripleSpinFinish());
 
         testColorAlignment.whenPressed(new ColorAlignment());
+
+        testTestHSB.whenPressed(new ColorAlignment());
+
+
 
 
 
