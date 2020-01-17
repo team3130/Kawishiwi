@@ -98,18 +98,28 @@ public class WheelOfFortune implements Subsystem {
         }
         else {
             float deg = hsb[0]*360;
+            float sat = hsb[1];
+            float brightness = hsb[2];
 
-            if( (deg >=  0 && deg <  30) || (deg >330 && deg <=359)){
+            SmartDashboard.putNumber("Hue Degree", deg);
+            SmartDashboard.putNumber("Saturation", sat);
+            SmartDashboard.putNumber("Brightness", brightness);
+
+
+
+            if( (deg >=  0 && deg <  80) || (deg > 310 && deg <=360)){
                 return "Red";
             }
-            else if (deg >=  30 && deg <  90) {
-                return "Yellow";
-            }
-            else if (deg >=  90 && deg < 150){
+
+            else if (deg >=  110 && deg < 140){
                 return "Green";
             }
-            else if (deg >= 150 && deg < 210){
+            else if (deg >= 135 && deg < 250){
                 return "Cyan";
+            }
+
+            else if (deg >=  83 && deg <  100) {
+                return "Yellow";
             }
 
             else{
@@ -117,9 +127,10 @@ public class WheelOfFortune implements Subsystem {
                 return "Bruh";
             }
         }
-
-
     }
+
+
+
 
 
 
@@ -143,9 +154,7 @@ public class WheelOfFortune implements Subsystem {
             colorString = "Unknown";
         }
 
-        SmartDashboard.putNumber("Red", detectedColor.red);
-        SmartDashboard.putNumber("Green", detectedColor.green);
-        SmartDashboard.putNumber("Blue", detectedColor.blue);
+
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
         SmartDashboard.putNumber("Proximity", proximityCheck());

@@ -10,6 +10,7 @@ import frc.team3130.robot.commands.Intake.IntakeOut;
 import frc.team3130.robot.commands.Shooter.SpinShooter;
 import frc.team3130.robot.commands.WheelOfFortune.ColorAlignment;
 import frc.team3130.robot.commands.WheelOfFortune.SpinWheel;
+import frc.team3130.robot.commands.WheelOfFortune.TestHSB;
 import frc.team3130.robot.commands.WheelOfFortune.TripleSpinFinish;
 
 
@@ -135,15 +136,15 @@ public class OI {
         hopperIn.whenActive(new HopperIn());
         hopperOut.whileHeld(new HopperOut());
 
-        spinWheel.whileHeld(new SpinWheel(spinWheel));
+        //spinWheel.whileHeld(new SpinWheel(spinWheel));
 
-        spinWheel.whileHeld(new SpinShooter());
+        //spinWheel.whileHeld(new SpinShooter());
 
         testTripleSpinFinish.whenPressed(new TripleSpinFinish());
 
         testColorAlignment.whenPressed(new ColorAlignment());
 
-        testTestHSB.whenPressed(new ColorAlignment());
+        testTestHSB.whenActive(new TestHSB());
 
 
 
