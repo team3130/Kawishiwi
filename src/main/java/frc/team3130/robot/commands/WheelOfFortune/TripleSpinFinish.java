@@ -42,7 +42,7 @@ public class TripleSpinFinish implements Command {
     @Override
     public void execute() {
         //store returned color into local variable
-        String color = WheelOfFortune.detectColor();
+        String color = WheelOfFortune.detectHSB();
 
         if (color.equals("Red")){
             if (!isChanged) {
