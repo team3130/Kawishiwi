@@ -1,26 +1,23 @@
-package frc.team3130.robot.commands.WheelOfFortune;
+package frc.team3130.robot.commands.Climber;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.team3130.robot.subsystems.Climber;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
-import frc.team3130.robot.subsystems.WheelOfFortune;
 
 import java.util.Set;
 
-public class DeployWheelOfFortune implements Command {
+public class DeployClimber implements Command {
     private final Set<Subsystem> subsystems;
 
-    public DeployWheelOfFortune() {
-        this.subsystems = Set.of(WheelOfFortune.getInstance());
-    }
+    public DeployClimber() { this.subsystems = Set.of(Climber.getInstance()); }
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
      */
     @Override
     public void initialize() {
-        WheelOfFortune.getInstance().wheelArm(true);
+
     }
 
     /**
@@ -29,6 +26,7 @@ public class DeployWheelOfFortune implements Command {
      */
     @Override
     public void execute() {
+
     }
 
     /**
@@ -46,7 +44,9 @@ public class DeployWheelOfFortune implements Command {
      * @return whether this command has finished.
      */
     @Override
-    public boolean isFinished() { return true; }
+    public boolean isFinished() {
+        return true;
+    }
 
     /**
      * The action to take when the command ends. Called when either the command
