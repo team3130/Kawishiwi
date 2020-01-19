@@ -20,7 +20,7 @@ public class DeployWheelOfFortune implements Command {
      */
     @Override
     public void initialize() {
-
+        WheelOfFortune.getInstance().wheelArm(true)
     }
 
     /**
@@ -46,9 +46,7 @@ public class DeployWheelOfFortune implements Command {
      * @return whether this command has finished.
      */
     @Override
-    public boolean isFinished() {
-        return false;
-    }
+    public boolean isFinished() { return true; }
 
     /**
      * The action to take when the command ends. Called when either the command

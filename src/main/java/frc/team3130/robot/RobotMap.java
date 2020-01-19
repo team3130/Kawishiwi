@@ -73,7 +73,6 @@ public class RobotMap<ClimberArm> {
     public static final int CAN_SHOOTERLEFT = 11;
 
 
-
     public static final int CAN_INTAKE1 = 101; //TODO: map these
     public static final int CAN_HOPPERL = 8;
     public static final int CAN_HOPPERR = 10;

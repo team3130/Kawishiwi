@@ -64,6 +64,15 @@ public class WheelOfFortune implements Subsystem {
 
         m_spinWheel = new WPI_TalonSRX(RobotMap.CAN_WHEELOFFORTUNE);
         m_spinWheel.configFactoryDefault();
+
+        m_wheelrArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_WHEELARM);
+
+        m_wheelArm.set(false);
+
+        /**
+        climberArm(false) is when it is not deployed
+        climberArm(true) is when it is deployed
+         */
     }
 
     //TODO: Add command
@@ -74,6 +83,8 @@ public class WheelOfFortune implements Subsystem {
     public static int proximityCheck() {
         return m_colorSensor.getProximity();
     }
+
+    public static void wheelArm(boolean wheelArmVal) { m_wheelArm.set(wheelArmVal); }
 
 
     /**
