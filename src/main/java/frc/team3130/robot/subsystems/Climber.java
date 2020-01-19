@@ -31,6 +31,8 @@ public class Climber implements Subsystem {
     private Climber() {
         m_skyWalker = new WPI_TalonSRX(RobotMap.CAN_SKYWALKER);
         m_climberArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_CLIMBERARM);
+
+        m_climberArm.set(false);
     }
 
     public static void motorSpin(double spin) {

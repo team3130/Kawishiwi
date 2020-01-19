@@ -5,6 +5,7 @@ import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
 import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Subsystem;
@@ -21,6 +22,8 @@ public class WheelOfFortune implements Subsystem {
     private static ColorMatch m_colorMatcher;
     private static WPI_TalonSRX m_spinWheel;
     private static Map<String, String> fieldToTargetColorMap = new HashMap<String, String>();
+
+    private static Solenoid m_wheelArm;
 
     static {
         fieldToTargetColorMap.put("Cyan", "Red");
@@ -65,7 +68,7 @@ public class WheelOfFortune implements Subsystem {
         m_spinWheel = new WPI_TalonSRX(RobotMap.CAN_WHEELOFFORTUNE);
         m_spinWheel.configFactoryDefault();
 
-        m_wheelrArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_WHEELARM);
+        m_wheelArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_WHEELARM);
 
         m_wheelArm.set(false);
 

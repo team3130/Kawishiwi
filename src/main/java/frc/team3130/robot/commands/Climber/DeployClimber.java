@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.subsystems.Climber;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
+import frc.team3130.robot.subsystems.WheelOfFortune;
 
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class DeployClimber implements Command {
      */
     @Override
     public void initialize() {
-
+        WheelOfFortune.getInstance().wheelArm(true);
     }
 
     /**
