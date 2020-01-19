@@ -9,6 +9,7 @@ public class Climber implements Subsystem {
 
     //Create necessary objects
     private static WPI_TalonSRX m_skyWalker;
+
     private static Solenoid m_climberArm;
 
     //Create and define all standard data types needed
@@ -30,6 +31,8 @@ public class Climber implements Subsystem {
 
     private Climber() {
         m_skyWalker = new WPI_TalonSRX(RobotMap.CAN_SKYWALKER);
+
+
         m_climberArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_CLIMBERARM);
 
         m_climberArm.set(false);
@@ -42,5 +45,5 @@ public class Climber implements Subsystem {
     {
         m_climberArm.set(deploy);
     }
-    
-}
+
+    }

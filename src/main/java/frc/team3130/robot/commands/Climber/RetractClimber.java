@@ -1,35 +1,41 @@
+/*
 package frc.team3130.robot.commands.Climber;
+
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.subsystems.Climber;
-import frc.team3130.robot.subsystems.ExampleSubsystem;
-import frc.team3130.robot.subsystems.WheelOfFortune;
 
 import java.util.Set;
 
-public class DeployClimber implements Command {
+import static frc.team3130.robot.subsystems.Climber.climberArm;
+
+public class RetractClimber implements Command {
     private final Set<Subsystem> subsystems;
 
-    public DeployClimber() { this.subsystems = Set.of(Climber.getInstance()); }
-
+    public RetractClimber() {
+        this.subsystems = Set.of(Climber.getInstance());
+    }
+*/
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
      */
+    /*
     @Override
     public void initialize() {
-       // Climber.getInstance().climberArm(true);
-    }
 
+    }
+    */
     /**
      * The main body of a command.  Called repeatedly while the command is scheduled.
      * (That is, it is called repeatedly until {@link #isFinished()}) returns true.)
      */
+    /*
     @Override
     public void execute() {
-
+    climberArm(false);
     }
-
+    */
     /**
      * <p>
      * Returns whether this command has finished. Once a command finishes -- indicated by
@@ -44,10 +50,15 @@ public class DeployClimber implements Command {
      *
      * @return whether this command has finished.
      */
+    /*
     @Override
     public boolean isFinished() {
-        return true;
+        if (climberArm(false)) {
+            return true;
+        }
     }
+    */
+
 
     /**
      * The action to take when the command ends. Called when either the command
@@ -57,10 +68,14 @@ public class DeployClimber implements Command {
      *
      * @param interrupted whether the command was interrupted/canceled
      */
+
+    /*
     @Override
     public void end(boolean interrupted) {
 
     }
+    */
+
 
     /**
      * <p>
@@ -75,8 +90,11 @@ public class DeployClimber implements Command {
      *
      * @return the set of subsystems that are required
      */
+
+    /*
     @Override
     public Set<Subsystem> getRequirements() {
         return this.subsystems;
     }
 }
+*/
