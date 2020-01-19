@@ -1,4 +1,4 @@
-package frc.team3130.robot.commands;
+package frc.team3130.robot.commands.WheelOfFortune;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
