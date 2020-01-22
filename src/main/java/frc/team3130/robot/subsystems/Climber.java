@@ -41,9 +41,11 @@ public class Climber implements Subsystem {
     public static void motorSpin(double spin) {
         m_skyWalker.set(spin);
     }
-    public static void deployClimb(boolean deploy)
+
+    public static boolean deployClimber(boolean deploy)
     {
         m_climberArm.set(deploy);
+        return deploy;
     }
 
     }

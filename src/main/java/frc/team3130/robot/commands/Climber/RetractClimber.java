@@ -1,4 +1,3 @@
-/*
 package frc.team3130.robot.commands.Climber;
 
 
@@ -8,7 +7,8 @@ import frc.team3130.robot.subsystems.Climber;
 
 import java.util.Set;
 
-import static frc.team3130.robot.subsystems.Climber.climberArm;
+import static frc.team3130.robot.subsystems.Climber.deployClimber;
+import static frc.team3130.robot.subsystems.Climber.deployClimber;
 
 public class RetractClimber implements Command {
     private final Set<Subsystem> subsystems;
@@ -16,26 +16,26 @@ public class RetractClimber implements Command {
     public RetractClimber() {
         this.subsystems = Set.of(Climber.getInstance());
     }
-*/
+
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
      */
-    /*
+
     @Override
     public void initialize() {
 
     }
-    */
+
     /**
      * The main body of a command.  Called repeatedly while the command is scheduled.
      * (That is, it is called repeatedly until {@link #isFinished()}) returns true.)
      */
-    /*
+
     @Override
     public void execute() {
-    climberArm(false);
+    deployClimber(false);
     }
-    */
+
     /**
      * <p>
      * Returns whether this command has finished. Once a command finishes -- indicated by
@@ -50,14 +50,15 @@ public class RetractClimber implements Command {
      *
      * @return whether this command has finished.
      */
-    /*
+
     @Override
     public boolean isFinished() {
-        if (climberArm(false)) {
+        if (Climber.deployClimber(false)) {
             return true;
         }
+        return true;
     }
-    */
+
 
 
     /**
@@ -69,12 +70,12 @@ public class RetractClimber implements Command {
      * @param interrupted whether the command was interrupted/canceled
      */
 
-    /*
+
     @Override
     public void end(boolean interrupted) {
 
     }
-    */
+
 
 
     /**
@@ -91,10 +92,9 @@ public class RetractClimber implements Command {
      * @return the set of subsystems that are required
      */
 
-    /*
+
     @Override
     public Set<Subsystem> getRequirements() {
         return this.subsystems;
     }
 }
-*/
