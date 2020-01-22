@@ -42,7 +42,7 @@ public class Climber implements Subsystem {
         m_skyWalker.set(spin);
     }
 
-    public static boolean deployClimber(boolean deploy)
+    public static boolean m_climberArm(boolean deploy)
     {
         m_climberArm.set(deploy);
         return deploy;

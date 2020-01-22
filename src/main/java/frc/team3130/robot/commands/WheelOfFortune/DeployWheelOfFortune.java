@@ -20,7 +20,7 @@ public class DeployWheelOfFortune implements Command {
      */
     @Override
     public void initialize() {
-        WheelOfFortune.getInstance().wheelArm(true);
+        WheelOfFortune.getInstance().wheelArm(false);
     }
 
     /**

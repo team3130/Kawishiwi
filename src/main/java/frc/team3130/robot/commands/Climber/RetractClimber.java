@@ -2,13 +2,13 @@ package frc.team3130.robot.commands.Climber;
 
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.subsystems.Climber;
 
 import java.util.Set;
 
-import static frc.team3130.robot.subsystems.Climber.deployClimber;
-import static frc.team3130.robot.subsystems.Climber.deployClimber;
+import static frc.team3130.robot.subsystems.Climber.m_climberArm;
 
 public class RetractClimber implements Command {
     private final Set<Subsystem> subsystems;
@@ -33,7 +33,7 @@ public class RetractClimber implements Command {
 
     @Override
     public void execute() {
-    deployClimber(false);
+    m_climberArm(false);
     }
 
     /**
@@ -44,7 +44,7 @@ public class RetractClimber implements Command {
      * Returning false will result in the command never ending automatically. It may still be
      * cancelled manually or interrupted by another command. Hard coding this command to always
      * return true will result in the command executing once and finishing immediately. It is
-     * recommended to use * {@link edu.wpi.first.wpilibj2.command.InstantCommand InstantCommand}
+     * recommended to use * {@link InstantCommand InstantCommand}
      * for such an operation.
      * </p>
      *
@@ -53,9 +53,8 @@ public class RetractClimber implements Command {
 
     @Override
     public boolean isFinished() {
-        if (Climber.deployClimber(false)) {
-            return true;
-        }
+        Climber.m_climberArm(false);
+
         return true;
     }
 
