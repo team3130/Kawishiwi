@@ -1,7 +1,7 @@
 plugins {
     id 'idea'
     id "java"
-    id "edu.wpi.first.GradleRIO" version "2020.1.2"
+    id "edu.wpi.first.GradleRIO" version "2020.2.2"
 }
 
 def ROBOT_MAIN_CLASS = "frc.team3130.robot.Main"
