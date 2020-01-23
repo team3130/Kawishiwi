@@ -6,6 +6,7 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorSensorV3;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Subsystem;
@@ -23,6 +24,10 @@ public class WheelOfFortune implements Subsystem {
     private static WPI_TalonSRX m_spinWheel;
     private static Map<String, String> fieldToTargetColorMap = new HashMap<String, String>();
 
+
+
+
+
     private static Solenoid m_wheelArm;
 
     static {
@@ -31,6 +36,48 @@ public class WheelOfFortune implements Subsystem {
         fieldToTargetColorMap.put("Red", "Cyan");
         fieldToTargetColorMap.put("Yellow", "Green");
     }
+
+    //Start of making color delay stuff modular
+    //TODO: figure out modifier here
+    static {
+        //timer garbage
+        Timer masterTimer = new Timer();
+        masterTimer.start();
+
+        //delay color intialization
+
+    }
+
+    private static boolean isChanged = false;
+    private static boolean isCounted;
+    private static double lastTimestamp;
+
+    private static String actualColor = null;
+
+    //TODO: need to add parameter that it is checking for
+    public static String determineColor(){
+
+        String possibleColor = detectHSB();
+
+        if (!possibleColor.equals(actualColor)) {
+            if (!isChanged) {
+                lastTimestamp = Timer.getFPGATimestamp();
+                isChanged = true;
+                isCounted = false;
+            } else {
+                if (Timer.getFPGATimestamp() - lastTimestamp > .2 && !isCounted) {
+                    isCounted = true;
+                    isChanged = false;
+                    actualColor = possibleColor;
+                }
+            }
+        }else{
+            isChanged = false;
+        }
+        return actualColor;
+    }
+    //End of making color delay stuff modular
+
 
 
     //Create and define all standard data types needed

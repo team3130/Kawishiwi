@@ -12,6 +12,7 @@ import java.util.Set;
 public class TripleSpinFinish implements Command {
     private final Set<Subsystem> subsystems;
     Timer timer = new Timer();
+
     private static int redCounter;
     private static boolean isChanged;
     private static boolean isCounted;
