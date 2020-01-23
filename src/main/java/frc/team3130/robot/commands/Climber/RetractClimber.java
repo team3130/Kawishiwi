@@ -8,8 +8,6 @@ import frc.team3130.robot.subsystems.Climber;
 
 import java.util.Set;
 
-import static frc.team3130.robot.subsystems.Climber.m_climberArm;
-
 public class RetractClimber implements Command {
     private final Set<Subsystem> subsystems;
 
@@ -23,7 +21,7 @@ public class RetractClimber implements Command {
 
     @Override
     public void initialize() {
-
+        Climber.deployClimber(false);
     }
 
     /**
@@ -33,7 +31,7 @@ public class RetractClimber implements Command {
 
     @Override
     public void execute() {
-    m_climberArm(false);
+//    m_climberArm(false); <-- wut dis?
     }
 
     /**
@@ -53,8 +51,6 @@ public class RetractClimber implements Command {
 
     @Override
     public boolean isFinished() {
-        Climber.m_climberArm(false);
-
         return true;
     }
 
