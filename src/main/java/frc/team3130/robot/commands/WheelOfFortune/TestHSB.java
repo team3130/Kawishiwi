@@ -33,8 +33,10 @@ public class TestHSB implements Command {
     @Override
     public void execute() {
         String color = WheelOfFortune.determineColor();
-        System.out.print(color);
         SmartDashboard.putString("God Color Detection", color);
+        System.out.print(color);
+
+
     }
 
     /**

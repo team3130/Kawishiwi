@@ -74,8 +74,11 @@ public class WheelOfFortune implements Subsystem {
         }else{
             isChanged = false;
         }
+
         return actualColor;
     }
+
+
     //End of making color delay stuff modular
 
 
