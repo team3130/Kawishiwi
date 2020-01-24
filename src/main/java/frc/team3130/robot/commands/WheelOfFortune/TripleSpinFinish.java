@@ -32,6 +32,10 @@ public class TripleSpinFinish implements Command {
         timer.start();
         cyanCounter = 0;
         WheelOfFortune.motorSpin(0.5);
+
+        WheelOfFortune.deployWheel();
+
+        System.out.println("Initialized");
     }
 
 
@@ -67,7 +71,11 @@ public class TripleSpinFinish implements Command {
      */
     @Override
     public boolean isFinished() {
-        return cyanCounter >= 7;
+        if (cyanCounter >= 7) {
+            WheelOfFortune.retractWheel();
+            return true;
+        }
+        return false;
     }
 
     /**
