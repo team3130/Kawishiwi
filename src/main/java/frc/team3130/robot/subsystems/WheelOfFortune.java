@@ -152,9 +152,15 @@ public class WheelOfFortune implements Subsystem {
      wheelArm(false) is when it is not deployed
      wheelArm(true) is when it is deployed
      */
-    public static boolean wheelArm(boolean deploywheel) {
-        m_wheelArm.set(deploywheel);
-        return deploywheel;
+
+    //method for deploying wheel to be called in a command
+    public static void deployWheel(){
+        m_wheelArm.set(true);
+    }
+
+    //method for retracting wheel to be called in a command
+    public static void retractWheel(){
+        m_wheelArm.set(false);
     }
 
     public static void motorSpin(double spin) {
