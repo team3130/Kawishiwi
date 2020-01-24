@@ -33,6 +33,9 @@ public class ColorAlignment implements Command {
         colorFound = false;
         fieldColor = "Red";
         targetColor = WheelOfFortune.getTargetColor(fieldColor);
+
+        WheelOfFortune.deployWheel();
+
         System.out.println("Initialized");
     }
 
@@ -124,6 +127,7 @@ public class ColorAlignment implements Command {
         //Code should turn off now
         if (color.equals(targetColor)) {
             WheelOfFortune.motorSpin(0);
+            WheelOfFortune.retractWheel();
             return true;
         }
         return false;
