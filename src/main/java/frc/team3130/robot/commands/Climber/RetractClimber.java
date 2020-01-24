@@ -21,7 +21,7 @@ public class RetractClimber implements Command {
 
     @Override
     public void initialize() {
-     //   Climber.deployClimber(false);
+     Climber.deployClimber(false);
     }
 
     /**
@@ -31,7 +31,7 @@ public class RetractClimber implements Command {
 
     @Override
     public void execute() {
-//    m_climberArm(false); <-- wut dis?
+
     }
 
     /**

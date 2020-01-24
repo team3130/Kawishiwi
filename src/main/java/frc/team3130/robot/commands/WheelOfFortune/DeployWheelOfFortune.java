@@ -13,12 +13,13 @@ public class DeployWheelOfFortune implements Command {
         this.subsystems = Set.of(WheelOfFortune.getInstance());
     }
 
+    private static boolean isDeployed; //questionable
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
      */
     @Override
     public void initialize() {
-       // WheelOfFortune.getInstance().wheelArm(false);
+        isDeployed = WheelOfFortune.getInstance().wheelArm(false);
     }
 
     /**
