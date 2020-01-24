@@ -19,6 +19,7 @@ public class DeployWheelOfFortune implements Command {
     @Override
     public void initialize() {
        // WheelOfFortune.getInstance().wheelArm(false);
+
     }
 
     /**
