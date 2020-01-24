@@ -13,7 +13,7 @@ public class TripleSpinFinish implements Command {
     private final Set<Subsystem> subsystems;
     Timer timer = new Timer();
 
-    private static int redCounter;
+    private static int cyanCounter;
     private static boolean isChanged;
     private static boolean isCounted;
     private static double lastTimestamp;
@@ -30,7 +30,7 @@ public class TripleSpinFinish implements Command {
     public void initialize() {
         timer.reset();
         timer.start();
-        redCounter = 0;
+        cyanCounter = 0;
         WheelOfFortune.motorSpin(0.5);
     }
 
@@ -43,24 +43,12 @@ public class TripleSpinFinish implements Command {
     @Override
     public void execute() {
         //store returned color into local variable
-        String color = WheelOfFortune.detectHSB();
+        String color = WheelOfFortune.determineColor();
 
-        if (color.equals("Red")){
-            if (!isChanged) {
-                lastTimestamp = Timer.getFPGATimestamp();
-                isChanged = true;
-                isCounted = false;
-            }else{
-                if(Timer.getFPGATimestamp() - lastTimestamp > .2 && !isCounted){
-                    redCounter++;
-                    isCounted = true;
-                }
-            }
-        }else{
-            isChanged = false;
+        if (color.equals("Cyan")){
+            cyanCounter++;
         }
-
-        System.out.println(redCounter);
+        System.out.println("lmao the cyanCounter is " + cyanCounter);
     }
 
     /**
@@ -79,7 +67,7 @@ public class TripleSpinFinish implements Command {
      */
     @Override
     public boolean isFinished() {
-        return redCounter >= 7;
+        return cyanCounter >= 7;
     }
 
     /**
