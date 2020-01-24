@@ -1,9 +1,7 @@
 package frc.team3130.robot.commands.WheelOfFortune;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.team3130.robot.subsystems.ExampleSubsystem;
 import frc.team3130.robot.subsystems.WheelOfFortune;
 
 import java.util.Set;
