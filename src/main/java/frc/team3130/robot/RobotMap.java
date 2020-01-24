@@ -81,8 +81,8 @@ public class RobotMap<ClimberArm> {
      * Pneumatics ports
      */
     public static final int PNM_SHIFT = 0;
-    public static final int PNM_CLIMBERARM = 1; //TODO: assign a button to this
-    public static final int PNM_WHEELARM = 2; //TODO: assign a button, Maybe y with a delay before spin)
+    // public static final int PNM_CLIMBERARM = 1;
+    // public static final int PNM_WHEELARM = 2;
 
 
     /**
