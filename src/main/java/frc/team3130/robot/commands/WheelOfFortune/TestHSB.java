@@ -32,9 +32,9 @@ public class TestHSB implements Command {
      */
     @Override
     public void execute() {
-        String color = WheelOfFortune.detectHSB();
+        String color = WheelOfFortune.determineColor();
         System.out.print(color);
-        SmartDashboard.putString("HSB Detected color", color);
+        SmartDashboard.putString("God Color Detection", color);
     }
 
     /**
