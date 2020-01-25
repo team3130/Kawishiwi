@@ -33,19 +33,23 @@ public class Climber implements Subsystem {
         m_skyWalker = new WPI_TalonSRX(RobotMap.CAN_SKYWALKER);
 
 
-      //  m_climberArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_CLIMBERARM);
+        m_climberArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_CLIMBERARM);
 
-       // m_climberArm.set(false);
+        m_climberArm.set(false);
     }
 
     public static void motorSpin(double spin) {
         m_skyWalker.set(spin);
     }
 
-    //public static boolean deployClimber(boolean deploy)
-    {
-      //  m_climberArm.set(deploy);
-       // return deploy;
+        //method for deploying wheel to be called in a command
+        public static void deployClimb () {
+        m_climberArm.set(true);
+    }
+
+        //method for retracting wheel to be called in a command
+        public static void retractClimb () {
+        m_climberArm.set(false);
     }
 
     }
