@@ -4,22 +4,23 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.subsystems.Climber;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
-import frc.team3130.robot.subsystems.WheelOfFortune;
 
 import java.util.Set;
 
-public class DeployClimber implements Command {
+public class ClimberPull implements Command {
     private final Set<Subsystem> subsystems;
 
-    public DeployClimber() { this.subsystems = Set.of(Climber.getInstance()); }
+    public ClimberPull() {
+        this.subsystems = Set.of(ExampleSubsystem.getInstance());
+    }
 
     /**
      * The initial subroutine of a command.  Called once when the command is initially scheduled.
      */
     @Override
     public void initialize() {
-      Climber.getInstance().deployClimb();
-      Climber.getInstance().climbPole(0.6);
+        Climber.getInstance().climbPole(0.6);
+        Climber.getInstance().flier(0.6);
     }
 
     /**
@@ -47,7 +48,8 @@ public class DeployClimber implements Command {
      */
     @Override
     public boolean isFinished() {
-        return true;
+        // TODO: Make this return true when this Command no longer needs to run execute()
+        return false;
     }
 
     /**
@@ -60,8 +62,7 @@ public class DeployClimber implements Command {
      */
     @Override
     public void end(boolean interrupted) {
-    Climber.getInstance().retractClimb();
-    Climber.getInstance().climbPole(0);
+
     }
 
     /**
