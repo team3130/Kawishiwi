@@ -18,7 +18,7 @@ public class DeployClimber implements Command {
      */
     @Override
     public void initialize() {
-      // Climber.getInstance().deployClimber(false);
+      Climber.getInstance().deployClimb();
     }
 
     /**
@@ -59,7 +59,7 @@ public class DeployClimber implements Command {
      */
     @Override
     public void end(boolean interrupted) {
-
+    Climber.getInstance().retractClimb();
     }
 
     /**

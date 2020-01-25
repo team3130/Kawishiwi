@@ -72,7 +72,6 @@ public class TripleSpinFinish implements Command {
     @Override
     public boolean isFinished() {
         if (cyanCounter >= 7) {
-            WheelOfFortune.retractWheel();
             return true;
         }
         return false;
@@ -89,6 +88,7 @@ public class TripleSpinFinish implements Command {
     @Override
     public void end(boolean interrupted) {
         WheelOfFortune.motorSpin(0.0);
+        WheelOfFortune.retractWheel();
         timer.stop();
     }
 

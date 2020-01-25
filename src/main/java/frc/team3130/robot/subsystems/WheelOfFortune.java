@@ -68,9 +68,9 @@ public class WheelOfFortune implements Subsystem {
         isChanged = false;
         timer = new Timer();
 
-        // m_wheelArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_WHEELARM);
+        m_wheelArm = new Solenoid(RobotMap.CAN_PNMMODULE, RobotMap.PNM_WHEELARM);
 
-        // m_wheelArm.set(false);
+         m_wheelArm.set(false);
 
         timer.start();
 
@@ -152,8 +152,6 @@ public class WheelOfFortune implements Subsystem {
      wheelArm(false) is when it is not deployed
      wheelArm(true) is when it is deployed
      */
-
-    // public static void wheelArm(boolean wheelArmVal) { m_wheelArm.set(wheelArmVal); }
 
 
     //method for deploying wheel to be called in a command
