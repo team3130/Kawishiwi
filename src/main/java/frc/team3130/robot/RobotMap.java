@@ -66,6 +66,8 @@ public class RobotMap<ClimberArm> {
     public static final int CAN_WHEELOFFORTUNE = 9;
 
     public static final int CAN_SKYWALKER = 106; //TODO: map these two
+    public static final int CAN_CLIMBER1 = 108; //TODO: map this because I just put a random number in
+    public static final int CAN_CLIMBER2 = 109; //TODO: map this one too because I did the same as climber1
 
     public static final int CAN_SHOOTERTOP = 105;
     public static final int CAN_SHOOTERRIGHT = 10;
