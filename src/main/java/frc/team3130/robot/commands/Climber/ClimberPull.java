@@ -48,7 +48,6 @@ public class ClimberPull implements Command {
      */
     @Override
     public boolean isFinished() {
-        // TODO: Make this return true when this Command no longer needs to run execute()
         return false;
     }
 
@@ -62,7 +61,8 @@ public class ClimberPull implements Command {
      */
     @Override
     public void end(boolean interrupted) {
-
+    Climber.getInstance().climbPole(0);
+    Climber.getInstance().flier(0);
     }
 
     /**
