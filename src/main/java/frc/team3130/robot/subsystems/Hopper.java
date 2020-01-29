@@ -48,7 +48,7 @@ public class Hopper implements Subsystem {
     public static void runHopper(double speed) {
         m_hopperMotorL.set(-speed);
         m_hopperMotorR.set(speed);
-        m_hopperMotorTop.set(speed);
+        m_hopperMotorTop.set(speed/2);
     }
     //  runs hopper so everything runs inwards when there is only one ball left in it
     public static void runHopperOneBall (double speed) {
