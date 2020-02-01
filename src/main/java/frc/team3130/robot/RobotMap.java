@@ -6,7 +6,7 @@ package frc.team3130.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap<ClimberArm> {
+public class RobotMap {
 
     /**
      * Constants
@@ -38,15 +38,7 @@ public class RobotMap<ClimberArm> {
     public static double kDistanceToEncoder = kDriveCodesPerRev / (Math.PI * 0.5 * (kLWheelDiameter + kRWheelDiameter));
     public static double kVelocityToEncoder = kDistanceToEncoder / 10.0;        // Per 100ms
     public static double kAccelerationToEncoder = kVelocityToEncoder / 10.0;    // Per 100ms
-
-    public static double kChassisHighP = 0.02; //0.018
-    public static double kChassisHighI = 0;
-    public static double kChassisHighD = 0.09; //0.062
-
-    public static double kChassisLowP = 0.03;
-    public static double kChassisLowI = 0;
-    public static double kChassisLowD = 0.11;
-
+    
     public static double kDriveDeadband = 0.02;
 
     //Intake
