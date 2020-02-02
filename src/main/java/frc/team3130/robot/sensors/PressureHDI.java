@@ -11,7 +11,7 @@ public class PressureHDI {
     private int pressure = 0;
     private Thread interrogator;
 
-    private final int LIDAR_ADDR = 0b1111000;
+    private static final int PRESSURE_ADDR = 0b1111000;
 
     public static int get() {
         return GetInstance().getStoredRange();
@@ -55,7 +55,7 @@ public class PressureHDI {
     }
 
     private PressureHDI() {
-		i2c = new I2C(I2C.Port.kOnboard, LIDAR_ADDR);
+		i2c = new I2C(I2C.Port.kOnboard, PRESSURE_ADDR);
 
         interrogator = new Thread(new InterrogationLoop(), "Pressure sensor interrogator");
         interrogator.start();

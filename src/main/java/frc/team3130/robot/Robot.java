@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team3130.robot.commands.Chassis.DefaultDrive;
 import frc.team3130.robot.commands.Climber.SkyWalker;
 import frc.team3130.robot.sensors.PressureHDI;
+import frc.team3130.robot.sensors.SimpleSensors;
 import frc.team3130.robot.subsystems.Chassis;
 import frc.team3130.robot.subsystems.Climber;
 import frc.team3130.robot.subsystems.ExampleSubsystem;
@@ -111,6 +112,7 @@ public class Robot extends TimedRobot {
 
     public void outputToSmartDashboard() {
         //WheelOfFortune.detectColor();
+        SimpleSensors.outputToSmartDashboard();
         Chassis.outputToSmartDashboard();
         SmartDashboard.putNumber("Pressure", PressureHDI.get());
     }
