@@ -2,11 +2,18 @@ package frc.team3130.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.team3130.robot.commands.Chassis.DefaultDrive;
 import frc.team3130.robot.commands.Climber.SkyWalker;
-import frc.team3130.robot.subsystems.*;
+import frc.team3130.robot.sensors.PressureHDI;
+import frc.team3130.robot.subsystems.Chassis;
+import frc.team3130.robot.subsystems.Climber;
+import frc.team3130.robot.subsystems.ExampleSubsystem;
+import frc.team3130.robot.subsystems.Intake;
+import frc.team3130.robot.subsystems.Shooter;
+import frc.team3130.robot.subsystems.WheelOfFortune;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,21 +45,6 @@ public class Robot extends TimedRobot {
         scheduler.registerSubsystem(WheelOfFortune.getInstance());
 
         scheduler.registerSubsystem(ExampleSubsystem.getInstance()); //TODO: check if this is even needed
-
-
-
-        //Smartdash output thread
-        Thread t = new Thread(() -> {
-            while (!Thread.interrupted()) {
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                outputToSmartDashboard();
-            }
-        });
-        t.start();
     }
 
     /**
@@ -75,6 +67,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotPeriodic() {
+        outputToSmartDashboard();
     }
 
     /**
@@ -119,6 +112,7 @@ public class Robot extends TimedRobot {
     public void outputToSmartDashboard() {
         //WheelOfFortune.detectColor();
         Chassis.outputToSmartDashboard();
+        SmartDashboard.putNumber("Pressure", PressureHDI.get());
     }
 
     public void writePeriodicOutputs() {
