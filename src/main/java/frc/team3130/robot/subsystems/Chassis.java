@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.team3130.robot.RobotMap;
@@ -18,9 +19,11 @@ public class Chassis implements Subsystem {
     private static WPI_TalonSRX m_rightMotorFront;
     private static WPI_TalonSRX m_rightMotorRear;
 
+    private static DifferentialDrive m_drive;
+
     private static Solenoid m_shifter;
 
-    private static ChassisControlState mChassisState = ChassisControlState.PERCENT_OUTPUT;
+    private static ChassisControlState mChassisState = ChassisControlState.PERCENT_OUTPUT; //might not need this, but I don't know -Dev
 
     //Create and define all standard data types needed
 
@@ -51,7 +54,7 @@ public class Chassis implements Subsystem {
         m_rightMotorFront.configFactoryDefault();
         m_rightMotorRear.configFactoryDefault();
 
-        m_leftMotorFront.setNeutralMode(NeutralMode.Brake);
+        m_leftMotorFront.setNeutralMode(NeutralMode.Brake); //might not need - I don't know - also Dev
         m_rightMotorFront.setNeutralMode(NeutralMode.Brake);
         m_leftMotorRear.setNeutralMode(NeutralMode.Brake);
         m_rightMotorRear.setNeutralMode(NeutralMode.Brake);
@@ -91,7 +94,12 @@ public class Chassis implements Subsystem {
      * @param squaredInputs Whether or not to use squared inputs
      */
     public static void driveTank(double moveL, double moveR, boolean squaredInputs) {
-        moveL = Util.limit(moveL, 1.0);
+
+        //NOTE: DifferentialDrive uses set(), which sets a speed in PercentOutput mode for Talons/Victors
+        m_drive.tankDrive(moveL, moveR, squaredInputs);
+
+        //v old drive thing
+        /* moveL = Util.limit(moveL, 1.0);
         moveL = Util.applyDeadband(moveL, RobotMap.kDriveDeadband);
 
         moveR = Util.limit(moveR, 1.0);
@@ -105,7 +113,7 @@ public class Chassis implements Subsystem {
 
         m_leftMotorFront.set(ControlMode.PercentOutput, moveL);
         m_rightMotorFront.set(ControlMode.PercentOutput, moveR);
-
+        */
     }
 
     /**
@@ -116,7 +124,11 @@ public class Chassis implements Subsystem {
      * @param squaredInputs Whether or not to use squared inputs
      */
     public static void driveArcade(double moveThrottle, double turnThrottle, boolean squaredInputs) {
-        moveThrottle = Util.limit(moveThrottle, 1.0);
+        //NOTE: DifferentialDrive uses set(), which sets a speed in PercentOutput mode for Talons/Victors
+        m_drive.arcadeDrive(moveThrottle, turnThrottle, squaredInputs);
+
+        //v old stuff
+        /*   moveThrottle = Util.limit(moveThrottle, 1.0);
         moveThrottle = Util.applyDeadband(moveThrottle, RobotMap.kDriveDeadband);
 
         turnThrottle = Util.limit(turnThrottle, 1.0);
@@ -132,6 +144,7 @@ public class Chassis implements Subsystem {
 
         m_leftMotorFront.set(ControlMode.PercentOutput, Util.limit(leftMotorOutput, 1.0));
         m_rightMotorFront.set(ControlMode.PercentOutput, Util.limit(rightMotorOutput, 1.0));
+        */
     }
 
     /**
